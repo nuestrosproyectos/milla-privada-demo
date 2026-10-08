@@ -434,7 +434,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
       <h2 id="t-estreno">Ferrari <em>Roma Spider</em></h2>
       <p class="txt">Su capota de lona se pliega en segundos y deja a la vista el cuero color tabaco. Míralo en nuestro estudio y elige tus días.</p>
       <span class="cartel-desde-chip"><small>Desde</small><strong>1.000 €</strong><small>/día</small></span>
-      <div class="hero-ctas"><a class="btn btn-rojo" href="#reserva" data-estreno-reservar="alquiler-ferrari-roma-spider">Reservar el Roma Spider</a><button class="btn btn-linea" type="button" data-estreno-ficha="alquiler-ferrari-roma-spider">Ver fotos y ficha</button></div>
+      <div class="hero-ctas"><a class="btn btn-rojo" href="#reserva" data-estreno-reservar="alquiler-ferrari-roma-spider">Reservar el Roma Spider</a><button class="btn btn-linea" type="button" data-estreno-ficha="alquiler-ferrari-roma-spider">Ver vídeo y ficha</button></div>
     </div>
   </div>
 </section>
@@ -468,7 +468,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
         <div class="cartel-media">
           <button class="cartel-foto" type="button" data-accion="ficha" aria-label="Ver fotos y ficha del Ferrari Roma Spider"><img src="../media/flota/alquiler-ferrari-roma-spider/cartel.webp" alt="Ferrari Roma Spider en nuestro estudio" loading="lazy" decoding="async" width="720" height="710"></button>
           <span class="cartel-etq">Descapotable</span>
-          <span class="cartel-play fijo" aria-hidden="true">▶ Fotos + vídeo</span>
+          <span class="cartel-play fijo" aria-hidden="true">▶ Vídeo + fotos</span>
           <span class="cartel-desde-chip"><small>Desde</small><strong>1.000 €</strong><small>/día</small></span>
         </div>
         <div class="cartel-cuerpo">
@@ -483,7 +483,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
         <div class="cartel-media">
           <button class="cartel-foto" type="button" data-accion="ficha" aria-label="Ver fotos y ficha del McLaren 570S Spider"><img src="../media/flota/alquiler-mclaren-570s-spider/cartel.webp" alt="McLaren 570S Spider en nuestro estudio" loading="lazy" decoding="async" width="720" height="710"></button>
           <span class="cartel-etq">Descapotable</span>
-          <span class="cartel-play fijo" aria-hidden="true">▶ Fotos + vídeo</span>
+          <span class="cartel-play fijo" aria-hidden="true">▶ Vídeo + fotos</span>
           <span class="cartel-desde-chip"><small>Desde</small><strong>880 €</strong><small>/día</small></span>
         </div>
         <div class="cartel-cuerpo">
@@ -1841,7 +1841,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     $('#f-nombre').textContent = c.nombre;
     var base = '../media/flota/' + c.slug + '/';
     var fotos = c.galeria.length ? c.galeria.map(function(g){ return base + g; }) : [base + 'cartel.webp'];
-    if (c.video) fotos.push(base + 'trailer.mp4');
+    if (c.video) fotos.unshift(base + 'trailer.mp4');  // el vídeo va primero, después las fotos
     $('#f-specs').innerHTML = [
       [c.cv ? c.cv + '' : '—', 'CV de potencia'],
       [c.aceleracion ? String(c.aceleracion).replace('.', ',') + ' s' : '—', '0 a 100 km/h'],
