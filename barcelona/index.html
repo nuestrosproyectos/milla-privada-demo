@@ -306,13 +306,6 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 @media (max-width:900px){.entrada-grid{grid-template-columns:1fr}}
 
 /* ---------- Críticas ---------- */
-.criticas{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px)}
-.critica{margin:0;padding:28px;border:1px solid var(--linea);border-radius:6px;display:flex;flex-direction:column;gap:18px}
-.critica blockquote{margin:0;font:400 clamp(22px,2vw,28px)/1.25 var(--f-display)}
-.critica figcaption{font-size:14px;color:var(--gris)}
-.estrellas{color:var(--ambar);letter-spacing:.2em;font-size:14px}
-.nota-google{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:28px}
-@media (max-width:900px){.criticas{grid-template-columns:1fr}}
 
 /* ---------- FAQ ---------- */
 .faq{max-width:900px}
@@ -418,7 +411,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
 <section class="confianza" aria-label="Por qué Milla Privada">
   <div class="wrap">
     <ul>
-      <li><strong>4,9 ★</strong><span>479 reseñas en Google</span></li>
+      <li><strong>18 marcas</strong><span>de Ferrari a Lamborghini, Porsche o McLaren</span></li>
       <li><strong>56 coches</strong><span>listos para rodar, y 10 estrenos en camino</span></li>
       <li><strong>Precio cerrado</strong><span>con IVA, lo ves antes de escribirnos</span></li>
       <li><strong>24 h</strong><span>para cancelar sin coste</span></li>
@@ -1606,25 +1599,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   </div>
 </section>
 
-<section class="acto" data-escena="ESC 06 · CRÍTICAS" aria-labelledby="t-criticas" style="padding-top:0">
-  <div class="wrap">
-    <div class="acto-cab">
-      <div>
-        <p class="claqueta rotulo" data-revelar><i></i>Críticas</p>
-        <h2 id="t-criticas" data-revelar>4,9 de 5 en <em>Google</em>.</h2>
-      </div>
-      <p data-revelar style="--retraso:.1s">Más de 470 clientes han dejado su opinión. Estas son tres de ellas, tal cual las escribieron.</p>
-    </div>
-    <div class="criticas">
-      <figure class="critica" data-revelar><span class="estrellas" aria-label="5 de 5">★★★★★</span><blockquote>«El coche estaba impecable, tanto por dentro como por fuera.»</blockquote><figcaption>Sergio M · Google</figcaption></figure>
-      <figure class="critica" data-revelar style="--retraso:.08s"><span class="estrellas" aria-label="5 de 5">★★★★★</span><blockquote>«La fianza fue devuelta al instante en el momento de entregar el vehículo.»</blockquote><figcaption>Cliente de un Porsche 911 Turbo S · Google</figcaption></figure>
-      <figure class="critica" data-revelar style="--retraso:.16s"><span class="estrellas" aria-label="5 de 5">★★★★★</span><blockquote>«Reservé un Ferrari Roma Spider para hacer una ruta con mi pareja, y la verdad que ha sido todo un acierto.»</blockquote><figcaption>Sara Valencia · Google</figcaption></figure>
-    </div>
-    <div class="nota-google"><a class="btn btn-linea" href="https://www.google.com/search?q=GT+Rentals+opiniones" target="_blank" rel="noopener">Leer las 479 reseñas en Google</a></div>
-  </div>
-</section>
-
-<section class="acto" id="preguntas" data-escena="ESC 07 · DETRÁS DE CÁMARAS" aria-labelledby="t-faq" style="padding-top:0">
+<section class="acto" id="preguntas" data-escena="ESC 06 · DETRÁS DE CÁMARAS" aria-labelledby="t-faq" style="padding-top:0">
   <div class="wrap">
     <div class="acto-cab">
       <div>
@@ -1644,7 +1619,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   </div>
 </section>
 
-<section class="final" id="creditos" data-escena="ESC 08 · CRÉDITOS" aria-labelledby="t-final">
+<section class="final" id="creditos" data-escena="ESC 07 · CRÉDITOS" aria-labelledby="t-final">
   <div class="wrap">
     <div class="rodillo"><div class="rodillo-in" id="rodillo">
       <dl data-revelar><dt>Producción</dt><dd>Milla Privada · Barcelona</dd></dl>
