@@ -1,3 +1,5 @@
 # Milla Privada · demo
 
-Demo de la web de alquiler de superdeportivos en Barcelona. No indexada en buscadores.
+Web de alquiler de superdeportivos en Barcelona (millaprivada.com). No indexada en buscadores hasta el lanzamiento.
+
+Publicación: Hostinger despliega automáticamente cada cambio en la rama `main`.
