@@ -15,6 +15,7 @@ RewriteRule ^$ /barcelona/ [L,R=302]
 
 # Tipos de archivo
 AddType video/mp4 .mp4
+AddType audio/mpeg .mp3
 AddType video/webm .webm
 AddType image/webp .webp
 AddType image/svg+xml .svg
