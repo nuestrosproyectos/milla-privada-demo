@@ -2,6 +2,12 @@
 # Web subida pero sin lanzar: que no la indexe ningún buscador.
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "noindex, nofollow"
+  # La página nunca se guarda en el CDN ni en el navegador: así cada cambio se ve al momento.
+  # Los vídeos e imágenes sí se guardan, porque su enlace lleva ?v=<huella> y cambia cuando cambian.
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set CDN-Cache-Control "no-store"
+  </FilesMatch>
 </IfModule>
 
 # Siempre por HTTPS y sin «www»
