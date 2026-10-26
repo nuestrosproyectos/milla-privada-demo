@@ -1,0 +1,31 @@
+# Sube la web a Hostinger por FTP cada vez que cambia «main».
+# Necesita tres secretos del repositorio: FTP_SERVIDOR, FTP_USUARIO y FTP_CLAVE.
+# Mientras no existan, el trabajo se salta sin fallar.
+name: Subir a Hostinger
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  subir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comprobar secretos
+        id: s
+        env:
+          SERVIDOR: ${{ secrets.FTP_SERVIDOR }}
+        run: echo "hay=$([ -n "$SERVIDOR" ] && echo si || echo no)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.s.outputs.hay == 'si'
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        if: steps.s.outputs.hay == 'si'
+        with:
+          server: ${{ secrets.FTP_SERVIDOR }}
+          username: ${{ secrets.FTP_USUARIO }}
+          password: ${{ secrets.FTP_CLAVE }}
+          server-dir: public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
