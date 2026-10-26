@@ -2772,7 +2772,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=d70f0d8a" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Barcelona. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Barcelona están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · <span class="version">versión 26/10 21:01</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · <span class="version">versión 26/10 21:15</span></p>
     </div>
   </div>
 </footer>
@@ -2784,7 +2784,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
 
 <dialog class="trailer" id="trailer" aria-label="Tráiler de Milla Privada">
   <button type="button" class="trailer-cerrar" id="trailer-cerrar" aria-label="Cerrar el tráiler">×</button>
-  <video id="trailer-video" controls playsinline preload="none" poster="../media/barcelona/trailer-poster.jpg?v=bcb78331"></video>
+  <video id="trailer-video" controls playsinline preload="none" poster="../media/barcelona/trailer-poster.jpg?v=ab1bea1e"></video>
 </dialog>
 <dialog class="ficha" id="ficha" aria-labelledby="f-nombre" data-lenis-prevent>
   <button class="cerrar" id="f-cerrar" aria-label="Cerrar ficha"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.6"/></svg></button>
@@ -2853,7 +2853,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     var dlg = $('#trailer'), v = $('#trailer-video'), btn = $('#ver-trailer');
     if (!dlg || !btn) return;
     btn.addEventListener('click', function(){
-      if (!v.firstChild) v.innerHTML = '<source src="../media/barcelona/trailer.webm?v=2c5b5606" type="video/webm"><source src="../media/barcelona/trailer.mp4?v=57485dc5" type="video/mp4">';
+      if (!v.firstChild) v.innerHTML = '<source src="../media/barcelona/trailer.webm?v=75c5f9e2" type="video/webm"><source src="../media/barcelona/trailer.mp4?v=a3070bfd" type="video/mp4">';
       dlg.showModal(); v.currentTime = 0; v.muted = false;
       var pr = v.play(); if (pr && pr.catch) pr.catch(function(){});
     });
