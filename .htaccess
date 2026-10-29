@@ -17,7 +17,7 @@ RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://millaprivada.com%{REQUEST_URI} [L,R=301]
 
 # La portada lleva directa a Barcelona
-RewriteRule ^$ /barcelona/ [L,R=302]
+RewriteRule ^$ /madrid/ [L,R=302]
 
 # Tipos de archivo
 AddType video/mp4 .mp4
