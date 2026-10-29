@@ -20,8 +20,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Narrow:wght@500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="../media/barcelona/hero-poster.webp?v=c00d173f" media="(min-width: 700px)" fetchpriority="high">
-<link rel="preload" as="image" href="../media/barcelona/hero-movil-poster.webp?v=994de0dd" media="(max-width: 699px)" fetchpriority="high">
+<link rel="preload" as="image" href="../media/barcelona/hero-poster.webp?v=d627769b" media="(min-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="../media/barcelona/hero-movil-poster.webp?v=2d5b376a" media="(max-width: 699px)" fetchpriority="high">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "AutoRental", "@id": "https://millaprivada.com/barcelona/#negocio", "name": "Milla Privada", "url": "https://millaprivada.com/barcelona/", "telephone": "+34930500607", "image": "https://millaprivada.com/media/barcelona/hero-poster.jpg", "logo": "https://millaprivada.com/media/marca/milla-privada-principal-claro.png", "priceRange": "225 € – 2.500 € por día", "areaServed": {"@type": "City", "name": "Barcelona"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué necesito para alquilar?", "acceptedAnswer": {"@type": "Answer", "text": "Tener 30 años o más y un carnet de conducir con más de 2 años de antigüedad. Antes de entregarte el coche comprobamos tu documentación y los puntos del carnet."}}, {"@type": "Question", "name": "¿Qué incluye el precio?", "acceptedAnswer": {"@type": "Answer", "text": "El precio por día lleva el IVA incluido y 150 km por cada día de alquiler. Si quieres que te llevemos el coche a tu hotel, casa o aeropuerto, te decimos el coste del traslado antes de confirmar."}}, {"@type": "Question", "name": "¿Y si hago más kilómetros?", "acceptedAnswer": {"@type": "Answer", "text": "Cada kilómetro de más tiene un precio fijo según el coche, de 1,40 € a 14,00 €. Lo ves en la ficha de cada coche y en tu entrada."}}, {"@type": "Question", "name": "¿Cuánto es la fianza?", "acceptedAnswer": {"@type": "Answer", "text": "Depende del coche: de 1.000 € a 8.000 €. Aparece en la ficha y en la calculadora antes de reservar."}}, {"@type": "Question", "name": "¿Por qué baja el precio con más días?", "acceptedAnswer": {"@type": "Answer", "text": "Trabajamos por tramos: una tarifa para 1 y 2 días, otra más baja de 3 a 6 días y la más baja de 7 a 10 días. Para más de 10 días te hacemos un precio a medida."}}, {"@type": "Question", "name": "¿Cómo se paga?", "acceptedAnswer": {"@type": "Answer", "text": "Con tarjeta de crédito, transferencia bancaria o en efectivo dentro del límite legal."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Milla Privada", "item": "https://millaprivada.com/"}, {"@type": "ListItem", "position": 2, "name": "Alquiler de superdeportivos en Barcelona", "item": "https://millaprivada.com/barcelona/"}]}]}</script>
 <style>
 :root{
@@ -108,7 +108,8 @@ body.sin-hud .hud{opacity:0}
 .hero-media video{opacity:0;transition:opacity .8s var(--ease)}
 .hero-media video.lista{opacity:1}
 .hero-corte{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;transition:opacity .18s linear;z-index:1}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,10,9,.82) 0%,rgba(12,10,9,.45) 38%,rgba(12,10,9,0) 62%),linear-gradient(0deg,rgba(12,10,9,.75) 0%,rgba(12,10,9,0) 40%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,10,9,.94) 0%,rgba(12,10,9,.8) 32%,rgba(12,10,9,.35) 55%,rgba(12,10,9,.05) 75%),linear-gradient(0deg,rgba(12,10,9,.8) 0%,rgba(12,10,9,0) 45%)}
+.hero-txt{text-shadow:0 2px 18px rgba(0,0,0,.55)}
 .banda{position:absolute;left:0;right:0;height:var(--banda,11vh);background:#000;z-index:3;transform-origin:top}
 .banda.arriba{top:0}.banda.abajo{bottom:0;transform-origin:bottom}
 .hero-txt{position:absolute;z-index:4;left:0;right:0;bottom:calc(var(--banda,11vh) + 28px)}
@@ -120,7 +121,7 @@ body.sin-hud .hud{opacity:0}
 .hero-pie{position:absolute;z-index:4;right:var(--gutter);bottom:calc(var(--banda,11vh) + 30px);text-align:right}
 @media (max-width:699px){
   .hero{--banda:5vh}
-  .hero::after{background:linear-gradient(0deg,rgba(12,10,9,.92) 0%,rgba(12,10,9,.55) 45%,rgba(12,10,9,0) 70%)}
+  .hero::after{background:linear-gradient(0deg,rgba(12,10,9,.97) 0%,rgba(12,10,9,.88) 50%,rgba(12,10,9,.35) 72%,rgba(12,10,9,.1) 100%)}
   .hero-txt{bottom:calc(var(--banda) + 18px)}
   .hero h1{font-size:clamp(46px,13.5vw,64px)}
   .hero-sub{font-size:16px;margin-top:14px}
@@ -519,10 +520,10 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
 <section class="hero" id="hero" data-escena="ESC 01 · TRÁILER" aria-label="Presentación">
   <div class="hero-media">
     <picture>
-      <source media="(max-width: 699px)" srcset="../media/barcelona/hero-movil-poster.webp?v=994de0dd" type="image/webp">
-      <source media="(max-width: 699px)" srcset="../media/barcelona/hero-movil-poster.jpg?v=19ea99d7">
-      <source srcset="../media/barcelona/hero-poster.webp?v=c00d173f" type="image/webp">
-      <img src="../media/barcelona/hero-poster.jpg?v=9dfc3eb6" alt="Superdeportivos de la flota de Milla Privada en carretera" width="1920" height="1080" fetchpriority="high">
+      <source media="(max-width: 699px)" srcset="../media/barcelona/hero-movil-poster.webp?v=2d5b376a" type="image/webp">
+      <source media="(max-width: 699px)" srcset="../media/barcelona/hero-movil-poster.jpg?v=a9b3d4a8">
+      <source srcset="../media/barcelona/hero-poster.webp?v=d627769b" type="image/webp">
+      <img src="../media/barcelona/hero-poster.jpg?v=18ed70d9" alt="Superdeportivos de la flota de Milla Privada en carretera" width="1920" height="1080" fetchpriority="high">
     </picture>
     <video id="hero-video" muted playsinline preload="none" aria-hidden="true"></video>
     <div class="hero-corte" id="hero-corte"></div>
@@ -2626,7 +2627,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div class="locs">
       <article class="loc" data-revelar>
         <picture><source srcset="../media/barcelona/garraf.webp?v=1b4ab886" type="image/webp"><img src="../media/barcelona/garraf.jpg?v=6053b74f" alt="Temerario morado en la carretera de las Costes del Garraf" loading="lazy" width="1600" height="893"></picture>
-        <video data-src="../media/barcelona/hero.mp4?v=0c3a2565" muted playsinline loop preload="none" aria-hidden="true"></video>
+        <video data-src="../media/barcelona/hero.mp4?v=151bc658" muted playsinline loop preload="none" aria-hidden="true"></video>
         <div class="loc-txt"><p class="rotulo">C-31 · Costes del Garraf</p><h3>Curvas sobre el mar</h3><p>La carretera de la costa entre Castelldefels y Sitges: acantilados, túneles en la roca y el Mediterráneo a tu derecha.</p></div>
       </article>
       <article class="loc" data-revelar style="--retraso:.08s">
@@ -2772,7 +2773,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=d70f0d8a" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Barcelona. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Barcelona están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · <span class="version">versión 29/10 17:43</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · <span class="version">versión 29/10 17:49</span></p>
     </div>
   </div>
 </footer>
@@ -2879,8 +2880,8 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   var vid = $('#hero-video'), corte = $('#hero-corte');
   var movil = matchMedia('(max-width: 699px)').matches;
   function cargarHero(){
-    if (movil) { vid.innerHTML = '<source src="../media/barcelona/hero-movil.mp4?v=843a3372" type="video/mp4">'; }
-    else { vid.innerHTML = '<source src="../media/barcelona/hero.webm?v=202ab11c" type="video/webm"><source src="../media/barcelona/hero.mp4?v=0c3a2565" type="video/mp4">'; }
+    if (movil) { vid.innerHTML = '<source src="../media/barcelona/hero-movil.mp4?v=b84028e8" type="video/mp4">'; }
+    else { vid.innerHTML = '<source src="../media/barcelona/hero.webm?v=c772ca8f" type="video/webm"><source src="../media/barcelona/hero.mp4?v=151bc658" type="video/mp4">'; }
     vid.load();
     vid.addEventListener('playing', function(){ vid.classList.add('lista'); }, {once:true});
     vid.play().catch(function(){});
