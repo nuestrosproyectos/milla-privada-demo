@@ -2773,7 +2773,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=d70f0d8a" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Madrid. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Madrid están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a> · <span class="version">versión 31/10 17:58</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a> · <span class="version">versión 31/10 19:40</span></p>
     </div>
   </div>
 </footer>
@@ -2785,7 +2785,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
 
 <dialog class="trailer" id="trailer" aria-label="Tráiler de Milla Privada">
   <button type="button" class="trailer-cerrar" id="trailer-cerrar" aria-label="Cerrar el tráiler">×</button>
-  <video id="trailer-video" controls controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture disableremoteplayback playsinline preload="none" poster="../media/madrid/trailer-poster.jpg?v=89ec13c6"></video>
+  <video id="trailer-video" controls controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture disableremoteplayback playsinline preload="none" poster="../media/madrid/trailer-poster.jpg?v=4ee9d619"></video>
 </dialog>
 <dialog class="ficha" id="ficha" aria-labelledby="f-nombre" data-lenis-prevent>
   <button class="cerrar" id="f-cerrar" aria-label="Cerrar ficha"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.6"/></svg></button>
@@ -2857,7 +2857,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     var dlg = $('#trailer'), v = $('#trailer-video'), btn = $('#ver-trailer');
     if (!dlg || !btn) return;
     function abrir(){
-      if (!v.firstChild) v.innerHTML = '<source src="../media/madrid/trailer.webm?v=6161839a" type="video/webm"><source src="../media/madrid/trailer.mp4?v=928c4b7b" type="video/mp4">';
+      if (!v.firstChild) v.innerHTML = '<source src="../media/madrid/trailer.webm?v=cc8bc905" type="video/webm"><source src="../media/madrid/trailer.mp4?v=abf88aa8" type="video/mp4">';
       if (dlg.open) dlg.close();
       if (v.ended || v.error) v.load();  // en móviles un vídeo terminado no siempre vuelve a arrancar sin recargar
       dlg.showModal(); v.muted = false;
