@@ -126,6 +126,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 .mapa .parada .pto{fill:#0b0d10;stroke:#e8a33d;stroke-width:4}.mapa .parada .halo{fill:rgba(232,163,61,.18)}
 .mapa .salida rect{fill:#f2ebdd;stroke:#0b0d10;stroke-width:4}
 .mapa .et{font:600 25px var(--f-cuerpo);fill:#f2ebdd;paint-order:stroke;stroke:#0b0d10;stroke-width:7px;stroke-linejoin:round}
+.mapa .et-n{font:600 22px var(--f-mono);fill:#e8a33d;stroke:none}
 .mapa .et-s{font:600 19px var(--f-mono);letter-spacing:.16em;fill:#e8a33d}
 .mapa .coche-pt{opacity:0;transition:opacity .4s}.mapa.dibuja .coche-pt{opacity:1}
 .mapa .coche-pt circle{fill:#fff}.mapa .coche-pt .cp-halo{fill:rgba(255,236,200,.35);animation:latido 1.6s ease-in-out infinite}
@@ -159,7 +160,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
   <div class="txt"><p class="rotulo">4 rutas · desde 105 €</p><h2>Mallorca</h2><p>Del Paseo Marítimo de Palma a la Serra de Tramuntana. Cuatro rutas guiadas con instructor, gasolina incluida y sin fianza.</p><span class="ir">Ver rutas →</span></div></a></div></div>
 </main><footer class="pie"><div class="wrap">
   <p>© 2026 Milla Privada · Rutas en <a href="../rutas/madrid/">Madrid</a> y <a href="../rutas/mallorca/">Mallorca</a> · Alquiler en <a href="../madrid/">Madrid</a>, <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a></p>
-  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 01/11 14:19</p>
+  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 01/11 15:25</p>
 </div></footer>
 <dialog class="trailer" id="trailer" aria-label="Trailer de las rutas"><button type="button" class="cerrar" aria-label="Cerrar">×</button>
 <video controls playsinline preload="none" controlslist="nodownload noplaybackrate" disablepictureinpicture poster="../media/rutas/trailer-poster.jpg?v=f7746ce4"><source src="../media/rutas/trailer.webm?v=e2ab8d1c" type="video/webm"><source src="../media/rutas/trailer.mp4?v=ffe2294b" type="video/mp4"></video></dialog>
@@ -176,7 +177,8 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
   var dl=document.getElementById('trailer');if(dl){var tv=dl.querySelector('video');
     document.querySelectorAll('[data-trailer]').forEach(function(b){b.addEventListener('click',function(){dl.showModal();tv.currentTime=0;var q=tv.play();if(q&&q.catch)q.catch(function(){})})});
     function cierra(){tv.pause();if(dl.open)dl.close()}dl.querySelector('.cerrar').onclick=cierra;
-    dl.addEventListener('click',function(e){if(e.target===dl)cierra()});dl.addEventListener('close',function(){tv.pause()});tv.addEventListener('ended',cierra)}
+    dl.addEventListener('click',function(e){if(e.target===dl)cierra()});dl.addEventListener('close',function(){tv.pause()});
+    if(location.hash==='#trailer'){dl.showModal();var q2=tv.play();if(q2&&q2.catch)q2.catch(function(){})}tv.addEventListener('ended',cierra)}
   document.addEventListener('contextmenu',function(e){if(e.target.closest&&e.target.closest('video'))e.preventDefault()});
 })();
 </script></body></html>
