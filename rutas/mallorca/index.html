@@ -148,6 +148,34 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 .mapa-hud.fin{opacity:0}
 .mapa-nota{z-index:2;position:absolute;right:14px;bottom:10px;font:400 11px var(--f-mono);letter-spacing:.08em;color:rgba(242,235,221,.45)}
 @media (prefers-reduced-motion:reduce){.mapa .traza,.mapa .traza-brillo{stroke-dashoffset:0;transition:none}.mapa .parada{opacity:1;transform:none;transition:none}.mapa .coche-pt{display:none}}
+
+.esq-caja{margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--linea)}
+.esquema{display:block;width:100%;height:auto;border-radius:12px}
+.esquema .cab .r1{font:500 18px var(--f-mono);letter-spacing:.32em;fill:#e8a33d}.esquema .cab .r2{font:400 34px var(--f-titulo);fill:#f2ebdd}
+.esquema .base{fill:none;stroke:rgba(242,235,221,.07);stroke-width:13;stroke-linecap:round;stroke-linejoin:round}
+.esquema .lin,.esquema .glow{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.esquema .lin{stroke-width:8}.esquema .glow{stroke-width:20;opacity:.5}
+.esquema .ida{stroke:#e8a33d}.esquema .vuelta{stroke:#f2ebdd}
+.esquema .chispa{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;stroke-dasharray:.035 .965;stroke-dashoffset:1;opacity:0}
+.esquema.fin .chispa{opacity:.9;animation:chispa 3.2s cubic-bezier(.4,0,.2,1) .2s 1 forwards}
+@keyframes chispa{from{stroke-dashoffset:1}to{stroke-dashoffset:-.04;opacity:0}}
+.esquema .salida line{stroke:#f2ebdd;stroke-width:4}.esquema .salida text{font:600 24px var(--f-cuerpo);fill:#f2ebdd}.esquema .salida .sub{font:500 16px var(--f-mono);letter-spacing:.18em;fill:#e8a33d}
+.esquema .pin{opacity:0}.esquema .pin.on{opacity:1}
+.esquema .pin-ic path{fill:#e8a33d;stroke:#0b0a09;stroke-width:3}.esquema .pin-ic circle{fill:#0b0a09}
+.esquema .pin.on .pin-ic{animation:cae .7s cubic-bezier(.34,1.56,.64,1) both}
+.esquema .pin text{font:600 27px var(--f-cuerpo);fill:#f2ebdd;paint-order:stroke;stroke:#0b0a09;stroke-width:8px;stroke-linejoin:round}
+.esquema .pin.on text{animation:entra .6s cubic-bezier(.16,1,.3,1) .12s both}
+.esquema .pin.w.on text{animation-name:entraw}
+@keyframes cae{0%{transform:var(--t) translateY(-60px) scale(.6);opacity:0}100%{opacity:1}}
+@keyframes entra{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+@keyframes entraw{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.esquema .coche rect{fill:#f2ebdd}.esquema .coche .luna{fill:#0b0a09}.esquema .coche{filter:drop-shadow(0 0 10px rgba(255,220,160,.8))}
+.esquema .leyenda line{stroke-width:7;stroke-linecap:round}.esquema .leyenda text{font:500 15px var(--f-mono);letter-spacing:.14em;fill:#a39a8c;text-transform:uppercase}
+.esquema .ficha{opacity:0;transition:opacity .8s .4s}.esquema.fin .ficha{opacity:1}
+.esquema .ficha .f1{font:400 40px var(--f-titulo);fill:#f2ebdd}.esquema .ficha .f2{font:600 22px var(--f-cuerpo);fill:#e8a33d}
+.esquema .hud .k{font:400 40px var(--f-titulo);fill:#f2ebdd}.esquema .hud .p{font:500 15px var(--f-mono);letter-spacing:.14em;fill:#e8a33d;text-transform:uppercase}
+.esquema.fin .hud{opacity:0;transition:opacity .6s}
+@media (prefers-reduced-motion:reduce){.esquema .lin,.esquema .glow{stroke-dashoffset:0}.esquema .pin{opacity:1}.esquema .ficha{opacity:1}.esquema .coche,.esquema .hud{display:none}}
 </style></head><body><header class="cab" id="cab"><div class="wrap cab-in">
   <a class="logo" href="../../madrid/" aria-label="Milla Privada"><img src="../../media/marca/milla-privada-horizontal-oscuro.svg?v=037cf2b7" alt="Milla Privada" width="300" height="18"></a>
   <nav aria-label="Principal">
@@ -310,7 +338,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 </div></section>
 </main><footer class="pie"><div class="wrap">
   <p>© 2026 Milla Privada · Rutas en <a href="../../rutas/madrid/">Madrid</a> y <a href="../../rutas/mallorca/">Mallorca</a> · Alquiler en <a href="../../madrid/">Madrid</a>, <a href="../../barcelona/">Barcelona</a> y <a href="../../palma/">Mallorca</a></p>
-  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 15:14</p>
+  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 17:59</p>
 </div></footer>
 <dialog class="trailer" id="trailer" aria-label="Trailer de las rutas"><button type="button" class="cerrar" aria-label="Cerrar">×</button>
 <video controls playsinline preload="none" controlslist="nodownload noplaybackrate" disablepictureinpicture poster="../../media/rutas/trailer-mallorca-poster.jpg?v=5f81cb2b"><source src="../../media/rutas/trailer-mallorca.webm?v=87997f7b" type="video/webm"><source src="../../media/rutas/trailer-mallorca.mp4?v=ba8aae2b" type="video/mp4"></video></dialog>
@@ -371,6 +399,33 @@ var RUTAS=[{"id": "ruta-paseo-maritimo", "nombre": "Paseo Marítimo de Palma", "
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var m=x.target;io.unobserve(m);
     if(red||!m.querySelector('.traza').getTotalLength){m.classList.add('dibuja');return}anima(m)})},{threshold:.45});
   document.querySelectorAll('svg.mapa').forEach(function(m){io.observe(m)});
+})();
+
+
+(function(){
+  var red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+  function anima(s){
+    var I=s.querySelector('.lin.ida'),V=s.querySelector('.lin.vuelta'),gI=s.querySelector('.glow.ida'),gV=s.querySelector('.glow.vuelta'),
+      Li=I.getTotalLength(),Lv=V.getTotalLength(),fi=Li/(Li+Lv),C=s.querySelector('.coche'),R=s.querySelector('.coche-r'),
+      pins=[].slice.call(s.querySelectorAll('.pin')),km=parseFloat(s.getAttribute('data-km'))||0,
+      hk=s.querySelector('.hud .k'),hp=s.querySelector('.hud .p'),T=Math.max(8000,Math.min(12000,km*45))*(window.__lento||1),t0=null,ang=0;
+    function pos(p){var a,L,q;if(p<=fi){a=I;L=Li;q=p/fi}else{a=V;L=Lv;q=(p-fi)/(1-fi)}
+      var d=Math.max(0,Math.min(L,q*L)),A=a.getPointAtLength(Math.max(0,d-2)),B=a.getPointAtLength(Math.min(L,d+2));
+      return [a.getPointAtLength(d),Math.atan2(B.y-A.y,B.x-A.x)*180/Math.PI]}
+    function paso(ts){if(t0===null)t0=ts;var u=Math.min(1,(ts-t0)/T),p=ease(u);
+      I.style.strokeDashoffset=gI.style.strokeDashoffset=1-Math.min(1,p/fi);
+      V.style.strokeDashoffset=gV.style.strokeDashoffset=1-Math.max(0,(p-fi)/(1-fi));
+      var r=pos(p),da=((r[1]-ang+540)%360)-180;ang+=da*.25;C.setAttribute('transform','translate('+r[0].x.toFixed(1)+','+r[0].y.toFixed(1)+')');R.setAttribute('transform','rotate('+ang.toFixed(1)+')');
+      var ult='';pins.forEach(function(g){if(p>=parseFloat(g.getAttribute('data-f'))-.004){if(!g.classList.contains('on'))g.classList.add('on');ult=g.getAttribute('data-n')}});
+      hk.textContent=(p*km).toFixed(1).replace('.',',')+' km';if(ult)hp.textContent=ult;
+      if(u<1)requestAnimationFrame(paso);else{s.classList.add('fin');C.style.transition='opacity .6s';C.style.opacity=0}}
+    pins.forEach(function(g){var t=g.querySelector('.pin-ic');t.style.setProperty('--t',t.getAttribute('transform'))});
+    requestAnimationFrame(paso);
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;io.unobserve(x.target);
+    if(red){x.target.classList.add('fin');return}anima(x.target)})},{threshold:.4});
+  document.querySelectorAll('svg.esquema').forEach(function(s){io.observe(s)});
 })();
 
 (function(){
