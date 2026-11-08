@@ -160,12 +160,12 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 .esquema.fin .chispa{opacity:.9;animation:chispa 4.5s cubic-bezier(.4,0,.2,1) .2s 1 forwards}
 @keyframes chispa{from{stroke-dashoffset:1}to{stroke-dashoffset:-.04;opacity:0}}
 .esquema .salida line{stroke:#f2ebdd;stroke-width:4}.esquema .salida text{font:600 24px var(--f-cuerpo);fill:#f2ebdd}.esquema .salida .sub{font:500 16px var(--f-mono);letter-spacing:.18em;fill:#e8a33d}
-.esquema .pin{opacity:0}.esquema .pin.on{opacity:1}
+.esquema .pin{opacity:1}
 .esquema .pin-ic path{fill:#e8a33d;stroke:#0b0a09;stroke-width:3}.esquema .pin-ic circle{fill:#0b0a09}
-.esquema .pin.on .pin-ic{animation:cae .7s cubic-bezier(.34,1.56,.64,1) both}
+.esquema .pin .pin-ic,.esquema .pin text{opacity:0;transition:opacity .9s ease}
+.esquema .pin.on .pin-ic,.esquema .pin.on text{opacity:1}
 .esquema .pin text{font:600 27px var(--f-cuerpo);fill:#f2ebdd;paint-order:stroke;stroke:#0b0a09;stroke-width:8px;stroke-linejoin:round}
-.esquema .pin.on text{animation:entra .6s cubic-bezier(.16,1,.3,1) .12s both}
-.esquema .pin.w.on text{animation-name:entraw}
+.esquema .pin.on text{transition-delay:.5s}
 @keyframes cae{0%{transform:var(--t) translateY(-60px) scale(.6);opacity:0}100%{opacity:1}}
 @keyframes entra{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
 @keyframes entraw{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
@@ -179,9 +179,10 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 .esq-esc{transform-origin:0 0;will-change:transform}
 .esq-caja.cam::before{content:"";position:absolute;inset:0 0 auto;height:42%;z-index:2;pointer-events:none;background:linear-gradient(#0b0a09 10%,rgba(11,10,9,0));transition:opacity 1s}
 .esq-caja.cam.fin::before{opacity:0}
-.esquema .mon path{fill:none;stroke:#e8a33d;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
-.esquema .pin.on .mon path{transition:stroke-dashoffset 1.4s cubic-bezier(.45,0,.2,1) .15s;stroke-dashoffset:0}
-.esquema .pin.on .mon{filter:drop-shadow(0 0 6px rgba(232,163,61,.55))}
+.esquema .mon .aro{fill:#14110e;stroke:rgba(232,163,61,.55);stroke-width:2;opacity:0;transition:opacity .8s}
+.esquema .mon path{fill:none;stroke:#f0b45a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.esquema .pin.on .mon .aro{opacity:1}
+.esquema .pin.on .mon path{transition:stroke-dashoffset 2.6s cubic-bezier(.4,0,.2,1) .3s;stroke-dashoffset:0}
 .esquema .cabeza{fill:none;stroke:#fffaf0;stroke-width:9;stroke-linecap:round;stroke-dasharray:0 1;opacity:0;filter:drop-shadow(0 0 8px #fff)}
 .esquema .chispas circle{fill:#ffdc96;filter:drop-shadow(0 0 4px #ffb84d)}
 .esq-caja.cam .esquema .cab,.esq-caja.cam .esquema .leyenda{opacity:0;transition:opacity .8s}.esq-caja.cam.fin .esquema .cab,.esq-caja.cam.fin .esquema .leyenda{opacity:1}
@@ -351,7 +352,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 </div></section>
 </main><footer class="pie"><div class="wrap">
   <p>© 2026 Milla Privada · Rutas en <a href="../../rutas/madrid/">Madrid</a> y <a href="../../rutas/mallorca/">Mallorca</a> · Alquiler en <a href="../../madrid/">Madrid</a>, <a href="../../barcelona/">Barcelona</a> y <a href="../../palma/">Mallorca</a></p>
-  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 18:57</p>
+  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 19:03</p>
 </div></footer>
 <dialog class="trailer" id="trailer" aria-label="Trailer de las rutas"><button type="button" class="cerrar" aria-label="Cerrar">×</button>
 <video controls playsinline preload="none" controlslist="nodownload noplaybackrate" disablepictureinpicture poster="../../media/rutas/trailer-mallorca-poster.jpg?v=5f81cb2b"><source src="../../media/rutas/trailer-mallorca.webm?v=87997f7b" type="video/webm"><source src="../../media/rutas/trailer-mallorca.mp4?v=ba8aae2b" type="video/mp4"></video></dialog>
