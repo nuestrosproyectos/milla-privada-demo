@@ -173,9 +173,22 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 .esquema .leyenda line{stroke-width:7;stroke-linecap:round}.esquema .leyenda text{font:500 15px var(--f-mono);letter-spacing:.14em;fill:#a39a8c;text-transform:uppercase}
 .esquema .ficha{opacity:0;transition:opacity .8s .4s}.esquema.fin .ficha{opacity:1}
 .esquema .ficha .f1{font:400 40px var(--f-titulo);fill:#f2ebdd}.esquema .ficha .f2{font:600 22px var(--f-cuerpo);fill:#e8a33d}
-.esquema .hud .k{font:400 40px var(--f-titulo);fill:#f2ebdd}.esquema .hud .p{font:500 15px var(--f-mono);letter-spacing:.14em;fill:#e8a33d;text-transform:uppercase}
-.esquema.fin .hud{opacity:0;transition:opacity .6s}
-@media (prefers-reduced-motion:reduce){.esquema .lin,.esquema .glow{stroke-dashoffset:0}.esquema .pin{opacity:1}.esquema .ficha{opacity:1}.esquema .coche,.esquema .hud{display:none}}
+.esquema .hud-viejo .k{font:400 40px var(--f-titulo);fill:#f2ebdd}.esquema .hud-viejo .p{font:500 15px var(--f-mono);letter-spacing:.14em;fill:#e8a33d;text-transform:uppercase}
+.esquema.fin .hud-viejo{opacity:0;transition:opacity .6s}
+.esq-caja{position:relative;background:#0b0a09}
+.esq-esc{transform-origin:0 0;will-change:transform}
+.esq-caja.cam::before{content:"";position:absolute;inset:0 0 auto;height:42%;z-index:2;pointer-events:none;background:linear-gradient(#0b0a09 10%,rgba(11,10,9,0));transition:opacity 1s}
+.esq-caja.cam.fin::before{opacity:0}
+.esquema .mon path{fill:none;stroke:#e8a33d;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.esquema .pin.on .mon path{transition:stroke-dashoffset 1.4s cubic-bezier(.45,0,.2,1) .15s;stroke-dashoffset:0}
+.esquema .pin.on .mon{filter:drop-shadow(0 0 6px rgba(232,163,61,.55))}
+.esquema .cabeza{fill:none;stroke:#fffaf0;stroke-width:9;stroke-linecap:round;stroke-dasharray:0 1;opacity:0;filter:drop-shadow(0 0 8px #fff)}
+.esquema .chispas circle{fill:#ffdc96;filter:drop-shadow(0 0 4px #ffb84d)}
+.esq-caja.cam .esquema .cab,.esq-caja.cam .esquema .leyenda{opacity:0;transition:opacity .8s}.esq-caja.cam.fin .esquema .cab,.esq-caja.cam.fin .esquema .leyenda{opacity:1}
+.esq-hud{position:absolute;z-index:3;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:baseline;gap:10px;padding:8px 18px;border-radius:999px;background:rgba(11,10,9,.82);border:1px solid rgba(232,163,61,.45);white-space:nowrap;transition:opacity .8s}
+.esq-hud b{font:400 26px var(--f-titulo);color:#f2ebdd}.esq-hud i{font:500 11px var(--f-mono);font-style:normal;color:#a39a8c}.esq-hud span{font:500 12px var(--f-mono);letter-spacing:.12em;color:#e8a33d;text-transform:uppercase}
+.esq-caja.fin .esq-hud{opacity:0}
+@media (prefers-reduced-motion:reduce){.esquema .mon path{stroke-dashoffset:0}.esquema .lin,.esquema .glow{stroke-dashoffset:0}.esquema .pin{opacity:1}.esquema .ficha{opacity:1}.esquema .coche,.esquema .hud{display:none}}
 </style></head><body><header class="cab" id="cab"><div class="wrap cab-in">
   <a class="logo" href="../madrid/" aria-label="Milla Privada"><img src="../media/marca/milla-privada-horizontal-oscuro.svg?v=037cf2b7" alt="Milla Privada" width="300" height="18"></a>
   <nav aria-label="Principal">
@@ -200,7 +213,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
   <div class="txt"><p class="rotulo">4 rutas · desde 105 €</p><h2>Mallorca</h2><p>Del Paseo Marítimo de Palma a la Serra de Tramuntana. Cuatro rutas guiadas con instructor, gasolina incluida y sin fianza.</p><span class="ir">Ver rutas →</span></div></a></div></div>
 </main><footer class="pie"><div class="wrap">
   <p>© 2026 Milla Privada · Rutas en <a href="../rutas/madrid/">Madrid</a> y <a href="../rutas/mallorca/">Mallorca</a> · Alquiler en <a href="../madrid/">Madrid</a>, <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a></p>
-  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 18:31</p>
+  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 18:51</p>
 </div></footer>
 <dialog class="trailer" id="trailer" aria-label="Trailer de las rutas"><button type="button" class="cerrar" aria-label="Cerrar">×</button>
 <video controls playsinline preload="none" controlslist="nodownload noplaybackrate" disablepictureinpicture poster="../media/rutas/trailer-poster.jpg?v=f7746ce4"><source src="../media/rutas/trailer.webm?v=e2ab8d1c" type="video/webm"><source src="../media/rutas/trailer.mp4?v=ffe2294b" type="video/mp4"></video></dialog>
