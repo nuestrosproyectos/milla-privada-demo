@@ -136,7 +136,17 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 .mapa .brujula circle{fill:rgba(11,13,16,.7);stroke:rgba(242,235,221,.25);stroke-width:1.5}.mapa .brujula path{fill:#e8a33d}.mapa .brujula text{font:500 18px var(--f-mono);fill:rgba(242,235,221,.6)}
 .mapa .escala line{stroke:rgba(242,235,221,.6);stroke-width:2}.mapa .escala text{font:400 18px var(--f-mono);fill:rgba(242,235,221,.6)}
 .mapa .ficha rect{fill:rgba(11,13,16,.78);stroke:rgba(232,163,61,.4)}.mapa .ficha .f1{font:500 16px var(--f-mono);letter-spacing:.3em;fill:#e8a33d}.mapa .ficha .f2{font:400 25px var(--f-titulo);fill:#f2ebdd}
-.mapa-nota{position:absolute;right:14px;bottom:10px;font:400 11px var(--f-mono);letter-spacing:.08em;color:rgba(242,235,221,.45)}
+.mapa-caja::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 58%,rgba(0,0,0,.5))}
+.mapa.cam .parada{opacity:0;transform:scale(.3);transition:opacity .35s,transform .55s cubic-bezier(.34,1.56,.64,1)}
+.mapa.cam .parada.on{opacity:1;transform:none}
+.mapa.cam .traza,.mapa.cam .traza-brillo{transition:none}
+.mapa.cam .deco{opacity:0;transition:opacity .9s}.mapa.cam.fin .deco{opacity:1}
+.mapa.cam.fin .salida.borde{opacity:1}
+.mapa-hud{position:absolute;z-index:2;left:14px;bottom:12px;display:flex;align-items:baseline;gap:8px;padding:7px 16px;border-radius:999px;background:rgba(11,10,9,.8);border:1px solid rgba(232,163,61,.4);font:500 11px var(--f-mono);color:#a39a8c;transition:opacity .8s}
+.mapa-hud b{font:400 24px var(--f-titulo);color:#f2ebdd;min-width:2.6em;text-align:right}
+.mapa-hud span{color:#e8a33d;letter-spacing:.1em;text-transform:uppercase;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw}
+.mapa-hud.fin{opacity:0}
+.mapa-nota{z-index:2;position:absolute;right:14px;bottom:10px;font:400 11px var(--f-mono);letter-spacing:.08em;color:rgba(242,235,221,.45)}
 @media (prefers-reduced-motion:reduce){.mapa .traza,.mapa .traza-brillo{stroke-dashoffset:0;transition:none}.mapa .parada{opacity:1;transform:none;transition:none}.mapa .coche-pt{display:none}}
 </style></head><body><header class="cab" id="cab"><div class="wrap cab-in">
   <a class="logo" href="../madrid/" aria-label="Milla Privada"><img src="../media/marca/milla-privada-horizontal-oscuro.svg?v=037cf2b7" alt="Milla Privada" width="300" height="18"></a>
@@ -162,7 +172,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
   <div class="txt"><p class="rotulo">4 rutas · desde 105 €</p><h2>Mallorca</h2><p>Del Paseo Marítimo de Palma a la Serra de Tramuntana. Cuatro rutas guiadas con instructor, gasolina incluida y sin fianza.</p><span class="ir">Ver rutas →</span></div></a></div></div>
 </main><footer class="pie"><div class="wrap">
   <p>© 2026 Milla Privada · Rutas en <a href="../rutas/madrid/">Madrid</a> y <a href="../rutas/mallorca/">Mallorca</a> · Alquiler en <a href="../madrid/">Madrid</a>, <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a></p>
-  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 09:44</p>
+  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 15:14</p>
 </div></footer>
 <dialog class="trailer" id="trailer" aria-label="Trailer de las rutas"><button type="button" class="cerrar" aria-label="Cerrar">×</button>
 <video controls playsinline preload="none" controlslist="nodownload noplaybackrate" disablepictureinpicture poster="../media/rutas/trailer-poster.jpg?v=f7746ce4"><source src="../media/rutas/trailer.webm?v=e2ab8d1c" type="video/webm"><source src="../media/rutas/trailer.mp4?v=ffe2294b" type="video/mp4"></video></dialog>
