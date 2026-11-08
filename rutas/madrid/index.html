@@ -406,7 +406,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 </div></section>
 </main><footer class="pie"><div class="wrap">
   <p>© 2026 Milla Privada · Rutas en <a href="../../rutas/madrid/">Madrid</a> y <a href="../../rutas/mallorca/">Mallorca</a> · Alquiler en <a href="../../madrid/">Madrid</a>, <a href="../../barcelona/">Barcelona</a> y <a href="../../palma/">Mallorca</a></p>
-  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 18:51</p>
+  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 18:57</p>
 </div></footer>
 <dialog class="trailer" id="trailer" aria-label="Trailer de las rutas"><button type="button" class="cerrar" aria-label="Cerrar">×</button>
 <video controls playsinline preload="none" controlslist="nodownload noplaybackrate" disablepictureinpicture poster="../../media/rutas/trailer-madrid-poster.jpg?v=2580e78d"><source src="../../media/rutas/trailer-madrid.webm?v=75a240fb" type="video/webm"><source src="../../media/rutas/trailer-madrid.mp4?v=bbae1f2d" type="video/mp4"></video></dialog>
@@ -476,7 +476,7 @@ var RUTAS=[{"id": "madrid-centro", "nombre": "Madrid Centro", "km": 33, "duracio
   function sst(a,b,x){x=Math.max(0,Math.min(1,(x-a)/(b-a)));return x*x*(3-2*x)}
   var NS='http://www.w3.org/2000/svg';
   function anima(s){
-    var caja=s.parentNode,esc=document.createElement('div');esc.className='esq-esc';caja.insertBefore(esc,s);esc.appendChild(s);
+    var caja=s.parentNode;
     var I=s.querySelector('.lin.ida'),V=s.querySelector('.lin.vuelta'),gI=s.querySelector('.glow.ida'),gV=s.querySelector('.glow.vuelta'),
       hI=s.querySelector('.cabeza.ida'),hV=s.querySelector('.cabeza.vuelta'),CH=s.querySelector('.chispas'),
       Li=I.getTotalLength(),Lv=V.getTotalLength(),fi=Li/(Li+Lv),C=s.querySelector('.coche'),R=s.querySelector('.coche-r'),
@@ -484,7 +484,6 @@ var RUTAS=[{"id": "madrid-centro", "nombre": "Madrid Centro", "km": 33, "duracio
       VB=s.viewBox.baseVal,T=Math.max(18000,Math.min(26000,km*500))*(window.__lento||1),t0=null,ang=0,tPrev=null,parts=[];
     var hud=document.createElement('div');hud.className='esq-hud';hud.innerHTML='<b>0,0</b><i>KM</i><span></span>';caja.appendChild(hud);
     var hb=hud.querySelector('b'),hs=hud.querySelector('span');
-    caja.classList.add('cam');
     function pos(p){var a,L,q;if(p<=fi){a=I;L=Li;q=p/fi}else{a=V;L=Lv;q=(p-fi)/(1-fi)}
       var d=Math.max(0,Math.min(L,q*L)),A=a.getPointAtLength(Math.max(0,d-3)),B=a.getPointAtLength(Math.min(L,d+3));
       return [a.getPointAtLength(d),Math.atan2(B.y-A.y,B.x-A.x)*180/Math.PI]}
@@ -502,17 +501,13 @@ var RUTAS=[{"id": "madrid-centro", "nombre": "Madrid Centro", "km": 33, "duracio
     function paso(ts){if(t0===null){t0=ts;tPrev=ts}var dt=Math.min(60,ts-tPrev);tPrev=ts;
       var u=Math.min(1,(ts-t0)/T),p=ease(Math.min(1,u/.86)),pi=Math.min(1,p/fi),pv=Math.max(0,(p-fi)/(1-fi));
       I.style.strokeDashoffset=gI.style.strokeDashoffset=1-pi;V.style.strokeDashoffset=gV.style.strokeDashoffset=1-pv;
-      hI.style.opacity=pi>0&&pi<1?1:0;hI.style.strokeDasharray='0.03 1';hI.style.strokeDashoffset=-(pi-.03);
-      hV.style.opacity=pv>0&&pv<1?1:0;hV.style.strokeDasharray='0.03 1';hV.style.strokeDashoffset=-(pv-.03);
       var r=pos(p),da=((r[1]-ang+540)%360)-180;ang+=da*.2;
       C.setAttribute('transform','translate('+r[0].x.toFixed(1)+','+r[0].y.toFixed(1)+')');R.setAttribute('transform','rotate('+ang.toFixed(1)+')');
-      if(p<1)chispas(r[0].x,r[0].y,dt);
-      camara(r[0].x,r[0].y,u);
       var ult='';pins.forEach(function(g){if(p>=parseFloat(g.getAttribute('data-f'))-.004){if(!g.classList.contains('on'))g.classList.add('on');ult=g.getAttribute('data-n')}});
       hb.textContent=(p*km).toFixed(1).replace('.',',');if(ult)hs.textContent=ult;
       if(u<1)requestAnimationFrame(paso);else{
-        esc.style.transform='none';caja.classList.add('fin');s.classList.add('fin');C.style.transition='opacity .6s';C.style.opacity=0;
-        parts.forEach(function(o){CH.removeChild(o.e)});parts=[]}}
+        caja.classList.add('fin');s.classList.add('fin');C.style.transition='opacity .6s';C.style.opacity=0;
+      }}
     pins.forEach(function(g){var t=g.querySelector('.pin-ic');t.style.setProperty('--t',t.getAttribute('transform'))});
     requestAnimationFrame(paso);
   }
