@@ -318,6 +318,12 @@ dialog.trailer{width:min(1280px,calc(100vw - 24px));padding:0;border:0;backgroun
 dialog.trailer::backdrop{background:rgba(0,0,0,.9);backdrop-filter:blur(6px)}
 dialog.trailer[open]{animation:abrir .45s var(--ease)}
 dialog.trailer video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.trailer-rotulo{display:none}
+@media (max-width:820px){.trailer-rotulo{display:block;position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;pointer-events:none;background:linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,0));opacity:0;transition:opacity .35s}
+.trailer-rotulo.on{opacity:1}.trailer-rotulo small{display:block;font:600 11px/1.2 var(--f-rotulo);letter-spacing:.2em;text-transform:uppercase;color:#e8a33d}
+.trailer-rotulo b{display:block;font:400 26px/1.1 var(--f-display);font-style:italic;color:#f2ebdd;margin-top:3px}
+dialog.trailer video::cue{font-size:1.15em;background:rgba(0,0,0,.6)}
+dialog.trailer{overflow:visible;margin-top:auto;margin-bottom:auto}dialog.trailer .trailer-cerrar{top:-54px;right:0}.trailer-rotulo{border-radius:0 0 8px 8px}}
 .trailer-cerrar{position:absolute;top:10px;right:10px;z-index:2;width:42px;height:42px;border-radius:50%;border:1px solid rgba(242,235,221,.4);background:rgba(12,10,9,.6);color:var(--crema);font-size:22px;line-height:1;cursor:pointer}
 dialog.ficha{width:min(1080px,calc(100vw - 24px));max-height:calc(100svh - 24px);padding:0;border:1px solid var(--linea);border-radius:10px;background:var(--pantalla);color:var(--crema);overflow:hidden}
 dialog.ficha::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(4px)}
@@ -2799,7 +2805,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=d70f0d8a" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Barcelona. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Barcelona están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../madrid/">Madrid</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/">Rutas en superdeportivo</a> · <span class="version">versión 08/11 22:18</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../madrid/">Madrid</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/">Rutas en superdeportivo</a> · <span class="version">versión 09/11 07:06</span></p>
     </div>
   </div>
 </footer>
@@ -2812,6 +2818,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
 <dialog class="trailer" id="trailer" aria-label="Tráiler de Milla Privada">
   <button type="button" class="trailer-cerrar" id="trailer-cerrar" aria-label="Cerrar el tráiler">×</button>
   <video id="trailer-video" controls controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture disableremoteplayback playsinline preload="none" poster="../media/barcelona/trailer-poster.jpg?v=4ee9d619"></video>
+  <div class="trailer-rotulo" id="trailer-rotulo" aria-hidden="true"><small></small><b></b></div>
 </dialog>
 <dialog class="ficha" id="ficha" aria-labelledby="f-nombre" data-lenis-prevent>
   <button class="cerrar" id="f-cerrar" aria-label="Cerrar ficha"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.6"/></svg></button>
@@ -2883,12 +2890,27 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     var dlg = $('#trailer'), v = $('#trailer-video'), btn = $('#ver-trailer');
     if (!dlg || !btn) return;
     function abrir(){
-      if (!v.firstChild) v.innerHTML = '<source src="../media/barcelona/trailer.webm?v=b51082f4" type="video/webm"><source src="../media/barcelona/trailer.mp4?v=f474b660" type="video/mp4">';
+      if (!v.firstChild) v.innerHTML = '<source src="../media/barcelona/trailer.webm?v=b51082f4" type="video/webm"><source src="../media/barcelona/trailer.mp4?v=f474b660" type="video/mp4"><track kind="captions" srclang="es" label="Coches" src="../media/trailer-coches.vtt">';
+      prepRotulos();
       if (dlg.open) dlg.close();
       if (v.ended || v.error) v.load();  // en móviles un vídeo terminado no siempre vuelve a arrancar sin recargar
       dlg.showModal(); v.muted = false;
       try { v.currentTime = 0; } catch (e) {}
       var pr = v.play(); if (pr && pr.catch) pr.catch(function(){});
+    }
+    /* Nombre del coche grande en móvil (en el vídeo va pequeño) */
+    var rot = $('#trailer-rotulo'), movil = matchMedia('(max-width: 820px)');
+    function prepRotulos(){
+      var tr = v.textTracks && v.textTracks[0]; if (!tr || tr._ok) return; tr._ok = 1; tr.mode = 'hidden';
+      tr.addEventListener('cuechange', function(){
+        var c = tr.activeCues && tr.activeCues[0];
+        if (c && movil.matches){ var p = c.text.split('\n'); rot.querySelector('small').textContent = p[0]; rot.querySelector('b').textContent = p[1] || ''; rot.classList.add('on'); }
+        else rot.classList.remove('on');
+      });
+      function pantalla(on){ tr.mode = on && movil.matches ? 'showing' : 'hidden'; }
+      v.addEventListener('webkitbeginfullscreen', function(){ pantalla(true); });
+      v.addEventListener('webkitendfullscreen', function(){ pantalla(false); });
+      document.addEventListener('fullscreenchange', function(){ pantalla(!!document.fullscreenElement); });
     }
     btn.addEventListener('click', abrir);
     function cerrar(){
