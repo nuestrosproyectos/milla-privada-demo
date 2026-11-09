@@ -214,7 +214,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
   <div class="txt"><p class="rotulo">4 rutas · desde 105 €</p><h2>Mallorca</h2><p>Del Paseo Marítimo de Palma a la Serra de Tramuntana. Cuatro rutas guiadas con instructor, gasolina incluida y sin fianza.</p><span class="ir">Ver rutas →</span></div></a></div></div>
 </main><footer class="pie"><div class="wrap">
   <p>© 2026 Milla Privada · Rutas en <a href="../rutas/madrid/">Madrid</a> y <a href="../rutas/mallorca/">Mallorca</a> · Alquiler en <a href="../madrid/">Madrid</a>, <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a></p>
-  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 08/11 22:18</p>
+  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 09/11 07:22</p>
 </div></footer>
 <dialog class="trailer" id="trailer" aria-label="Trailer de las rutas"><button type="button" class="cerrar" aria-label="Cerrar">×</button>
 <video controls playsinline preload="none" controlslist="nodownload noplaybackrate" disablepictureinpicture poster="../media/rutas/trailer-poster.jpg?v=f7746ce4"><source src="../media/rutas/trailer.webm?v=e2ab8d1c" type="video/webm"><source src="../media/rutas/trailer.mp4?v=ffe2294b" type="video/mp4"></video></dialog>
@@ -229,6 +229,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
       var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.2});
   if(!red && !(navigator.connection&&navigator.connection.saveData)) document.querySelectorAll('video[data-mp4]').forEach(function(v){iv.observe(v)});
   var dl=document.getElementById('trailer');if(dl){var tv=dl.querySelector('video');
+    var hd=tv.getAttribute('data-hd');if(hd&&innerWidth>900&&!(navigator.connection&&navigator.connection.saveData)){tv.innerHTML='<source src="'+hd+'" type="video/mp4">';tv.load();}
     document.querySelectorAll('[data-trailer]').forEach(function(b){b.addEventListener('click',function(){dl.showModal();tv.currentTime=0;var q=tv.play();if(q&&q.catch)q.catch(function(){})})});
     function cierra(){tv.pause();if(dl.open)dl.close()}dl.querySelector('.cerrar').onclick=cierra;
     dl.addEventListener('click',function(e){if(e.target===dl)cierra()});dl.addEventListener('close',function(){tv.pause()});
