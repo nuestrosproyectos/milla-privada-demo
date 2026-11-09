@@ -2805,7 +2805,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=d70f0d8a" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Barcelona. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Barcelona están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../madrid/">Madrid</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/">Rutas en superdeportivo</a> · <span class="version">versión 09/11 07:06</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../madrid/">Madrid</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/">Rutas en superdeportivo</a> · <span class="version">versión 09/11 07:08</span></p>
     </div>
   </div>
 </footer>
@@ -2887,7 +2887,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
 
   /* ---------- Tráiler con música ---------- */
   (function(){
-    var dlg = $('#trailer'), v = $('#trailer-video'), btn = $('#ver-trailer');
+    var dlg = $('#trailer'), v = $('#trailer-video'), btn = $('#ver-trailer'), movil = matchMedia('(max-width: 820px)');
     if (!dlg || !btn) return;
     function abrir(){
       if (!v.firstChild) v.innerHTML = '<source src="../media/barcelona/trailer.webm?v=b51082f4" type="video/webm"><source src="../media/barcelona/trailer.mp4?v=f474b660" type="video/mp4"><track kind="captions" srclang="es" label="Coches" src="../media/trailer-coches.vtt">';
@@ -2897,9 +2897,28 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
       dlg.showModal(); v.muted = false;
       try { v.currentTime = 0; } catch (e) {}
       var pr = v.play(); if (pr && pr.catch) pr.catch(function(){});
+      if (movil.matches) pantallaCompleta();
     }
+    /* En el móvil: directo a pantalla completa y en horizontal */
+    function pantallaCompleta(){
+      try {
+        if (v.requestFullscreen) {
+          v.requestFullscreen().then(function(){
+            if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(function(){});
+          }).catch(function(){ if (v.webkitEnterFullscreen) try { v.webkitEnterFullscreen(); } catch (e) {} });
+        } else if (v.webkitEnterFullscreen) {
+          v.webkitEnterFullscreen();
+        }
+      } catch (e) {}
+    }
+    document.addEventListener('fullscreenchange', function(){
+      if (!document.fullscreenElement && movil.matches && dlg.open) {
+        if (screen.orientation && screen.orientation.unlock) try { screen.orientation.unlock(); } catch (e) {}
+        cerrar();
+      }
+    });
     /* Nombre del coche grande en móvil (en el vídeo va pequeño) */
-    var rot = $('#trailer-rotulo'), movil = matchMedia('(max-width: 820px)');
+    var rot = $('#trailer-rotulo');
     function prepRotulos(){
       var tr = v.textTracks && v.textTracks[0]; if (!tr || tr._ok) return; tr._ok = 1; tr.mode = 'hidden';
       tr.addEventListener('cuechange', function(){
