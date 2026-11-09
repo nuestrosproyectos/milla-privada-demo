@@ -32,7 +32,7 @@ h1 em,h2 em,h3 em{font-style:italic;text-shadow:0 0 28px rgba(232,163,61,.35)}
 .cab-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
 .logo img{height:18px;width:auto}.cab nav{display:flex;align-items:center;gap:26px}
 .cab nav a{font:500 12px/1 var(--f-cuerpo);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--gris)}.cab nav a:hover,.cab nav a[aria-current]{color:var(--crema)}
-.cab .btn{min-height:42px;padding:0 20px}.cab nav a.btn{color:var(--sala);letter-spacing:.2em;font-size:12px;min-height:44px}.cab nav a{text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.cab .btn{min-height:42px;padding:0 20px}.cab nav a.btn{color:var(--sala);letter-spacing:.02em;text-transform:none;font-size:14px}.cab nav a{text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .coche .sin{display:grid;place-items:center;width:100%;aspect-ratio:1.4/1;border-radius:6px;background:radial-gradient(circle at 50% 60%,#2a2219,#111);font:italic 400 30px var(--f-titulo);color:rgba(242,235,221,.5)}
 @media (max-width:820px){.cab nav a.opc{display:none}}
 @media (max-width:520px){.logo img{height:13px}.cab nav a.btn{min-height:38px;padding:0 14px;font-size:13px}}
@@ -109,23 +109,6 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 .trailer video{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px}
 .trailer .cerrar{position:absolute;top:-52px;right:0;width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,235,221,.35);background:transparent;color:var(--crema);font-size:26px;cursor:pointer}
 .wa-flota{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 28px rgba(0,0,0,.45)}.wa-flota svg{width:30px;height:30px;color:#fff}
-/* ---------- Botones con identidad propia (rectos, corte en diagonal, rótulo estrecho) ---------- */
-.btn{border-radius:0;min-height:54px;padding:0 30px;font:600 13px/1 var(--f-rotulo,"Archivo Narrow",sans-serif);letter-spacing:.2em;text-transform:uppercase;position:relative;isolation:isolate;overflow:hidden}
-.btn:active{transform:translateY(1px)}
-.btn-rojo,.btn-ambar{background:var(--ambar);background-image:none;color:var(--sala);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%)}
-.btn-rojo::before,.btn-ambar::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--crema);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.7,0,.2,1)}
-.btn-rojo:hover,.btn-ambar:hover{background:var(--ambar)}
-.btn-rojo:hover::before,.btn-ambar:hover::before,.btn-rojo:focus-visible::before,.btn-ambar:focus-visible::before{transform:scaleX(1)}
-.btn-linea{border:1px solid rgba(242,235,221,.4);border-left:3px solid var(--ambar)}
-.btn-linea:hover{border-color:var(--crema);border-left-color:var(--ambar);background:rgba(242,235,221,.06)}
-.chip,.orden select,.marcas-todas,.garaje-btn,.cartel-etq,.cartel-desde-chip,.cartel-play,.estreno-video .rec-tag{border-radius:0}
-.chip[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--ambar)}
-.ver-trailer .vt-play,.trailer-cerrar,.reel-ctrl button,.cerrar,.contador button,.trailer .cerrar{border-radius:0}
-.barra{border-radius:0;padding:6px}
-.barra .btn{font-size:13px}
-.calc,.ticket,.coche,.coche img,select,input[type=date],.si-no button,.chip,.datos,.incluye{border-radius:2px}
-.ticket dd{white-space:nowrap}
-.wa-flota{border-radius:0;width:56px;height:56px;background:#1fae55;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
 
 .mapa-caja{position:relative;margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--linea);background:#0e0c0b}
 .mapa{display:block;width:100%;height:auto}
@@ -387,7 +370,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 </div></section>
 </main><footer class="pie"><div class="wrap">
   <p>© 2026 Milla Privada · Rutas en <a href="../../rutas/madrid/">Madrid</a> y <a href="../../rutas/mallorca/">Mallorca</a> · Alquiler en <a href="../../madrid/">Madrid</a>, <a href="../../barcelona/">Barcelona</a> y <a href="../../palma/">Mallorca</a></p>
-  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 09/11 17:00</p>
+  <p><a href="tel:+34930500607">930 50 06 07</a> · <a href="https://wa.me/34674337369">WhatsApp</a> · versión 09/11 17:02</p>
 </div></footer>
 <dialog class="trailer" id="trailer" aria-label="Trailer de las rutas"><button type="button" class="cerrar" aria-label="Cerrar">×</button>
 <video controls playsinline preload="none" controlslist="nodownload noplaybackrate" disablepictureinpicture poster="../../media/rutas/trailer-mallorca-poster.jpg?v=fb8c0314" data-hd="../../media/rutas/trailer-mallorca-1080.mp4?v=49774919"><source src="../../media/rutas/trailer-mallorca.webm?v=a1c6dcc8" type="video/webm"><source src="../../media/rutas/trailer-mallorca.mp4?v=d60b6aea" type="video/mp4"></video></dialog>

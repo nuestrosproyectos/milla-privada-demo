@@ -507,20 +507,6 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
 .rutas-banda h2{margin:14px 0 14px;font-size:clamp(40px,5.2vw,86px);line-height:.98;font-weight:400}.rutas-banda p.rb-p{margin:0 0 22px;color:#e6dfd2}
 .rutas-banda .rb-chip{display:inline-block;font:600 12px/1 var(--f-rotulo);letter-spacing:.2em;text-transform:uppercase;color:var(--ambar,#e8a33d)}
 @media (max-width:700px){.rutas-banda .rb-txt{position:relative;padding-top:150px}.rutas-banda::after{background:linear-gradient(0deg,rgba(12,10,9,.96) 0%,rgba(12,10,9,.6) 60%,rgba(12,10,9,.1) 100%)}}
-/* ---------- Botones con identidad propia (rectos, corte en diagonal, rótulo estrecho) ---------- */
-.btn{border-radius:0;min-height:54px;padding:0 30px;font:600 13px/1 var(--f-rotulo,"Archivo Narrow",sans-serif);letter-spacing:.2em;text-transform:uppercase;position:relative;isolation:isolate;overflow:hidden}
-.btn:active{transform:translateY(1px)}
-.btn-rojo,.btn-ambar{background:var(--ambar);background-image:none;color:var(--sala);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%)}
-.btn-rojo::before,.btn-ambar::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--crema);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.7,0,.2,1)}
-.btn-rojo:hover,.btn-ambar:hover{background:var(--ambar)}
-.btn-rojo:hover::before,.btn-ambar:hover::before,.btn-rojo:focus-visible::before,.btn-ambar:focus-visible::before{transform:scaleX(1)}
-.btn-linea{border:1px solid rgba(242,235,221,.4);border-left:3px solid var(--ambar)}
-.btn-linea:hover{border-color:var(--crema);border-left-color:var(--ambar);background:rgba(242,235,221,.06)}
-.chip,.orden select,.marcas-todas,.garaje-btn,.cartel-etq,.cartel-desde-chip,.cartel-play,.estreno-video .rec-tag{border-radius:0}
-.chip[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--ambar)}
-.ver-trailer .vt-play,.trailer-cerrar,.reel-ctrl button,.cerrar,.contador button,.trailer .cerrar{border-radius:0}
-.barra{border-radius:0;padding:6px}
-.barra .btn{font-size:13px}
 </style>
 </head>
 <body>
@@ -2827,7 +2813,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=d70f0d8a" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Mallorca. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Mallorca están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../madrid/">Madrid</a> y <a href="../barcelona/">Barcelona</a> · <a href="../rutas/mallorca/">Rutas en superdeportivo</a> · <span class="version">versión 09/11 16:59</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../madrid/">Madrid</a> y <a href="../barcelona/">Barcelona</a> · <a href="../rutas/mallorca/">Rutas en superdeportivo</a> · <span class="version">versión 09/11 17:02</span></p>
     </div>
   </div>
 </footer>
