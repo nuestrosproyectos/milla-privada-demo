@@ -6,6 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo '{"ok
 $destino = 'reservas@millaprivada.com';
 $c = function ($k, $max = 200) { return trim(mb_substr(str_replace(["\r", "\n"], ' ', (string)($_POST[$k] ?? '')), 0, $max)); };
 if ($c('web') !== '') { echo '{"ok":true}'; exit; }            // trampa para robots
+// Límite: como mucho 5 envíos cada 10 minutos por IP (evita que llenen reservas@ de spam)
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'x';
+$fich = sys_get_temp_dir() . '/mp_contacto_' . md5($ip);
+$ahora = time();
+$envios = array_filter(@json_decode((string)@file_get_contents($fich), true) ?: [], function ($t) use ($ahora) { return $t > $ahora - 600; });
+if (count($envios) >= 5) { http_response_code(429); echo '{"ok":false,"error":"demasiados_envios"}'; exit; }
 $nombre = $c('nombre', 80); $tel = $c('telefono', 30); $email = $c('email', 120);
 $ciudad = $c('ciudad', 30); $origen = $c('origen', 200);
 $msg = trim(mb_substr((string)($_POST['mensaje'] ?? ''), 0, 3000));
@@ -20,5 +26,6 @@ $asunto = '=?UTF-8?B?' . base64_encode("Nueva solicitud web · $ciudad · $nombr
 $cuerpo = "Nueva solicitud desde millaprivada.com\n\nNombre: $nombre\nTeléfono: $tel\nEmail: $email\nCiudad: $ciudad\nPágina: $origen\n\nMensaje:\n$msg\n\nFecha: " . date('d/m/Y H:i') . "\nAceptó la política de privacidad: sí\n";
 $cab = "From: Milla Privada web <reservas@millaprivada.com>\r\nContent-Type: text/plain; charset=UTF-8\r\n";
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) { $cab .= "Reply-To: $email\r\n"; }
+$envios[] = $ahora; @file_put_contents($fich, json_encode(array_values($envios)), LOCK_EX);
 $ok = @mail($destino, $asunto, $cuerpo, $cab, '-freservas@millaprivada.com');
 echo json_encode(['ok' => (bool)$ok]);

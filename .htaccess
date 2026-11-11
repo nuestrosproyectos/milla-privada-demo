@@ -2,6 +2,14 @@
 # Web subida pero sin lanzar: que no la indexe ningún buscador.
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "noindex, nofollow"
+  # Seguridad: nadie puede meter la web dentro de otra página (copias falsas con otro WhatsApp),
+  # siempre HTTPS, el navegador no "adivina" tipos de archivo y no se filtra la URL completa a otras webs.
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Content-Security-Policy "frame-ancestors 'self'; upgrade-insecure-requests"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
   # La página nunca se guarda en el CDN ni en el navegador: así cada cambio se ve al momento.
   # Los vídeos e imágenes sí se guardan, porque su enlace lleva ?v=<huella> y cambia cuando cambian.
   <FilesMatch "\.html?$">
@@ -49,3 +57,4 @@ Options -Indexes
 
 # Subtítulos del tráiler
 AddType text/vtt .vtt
+AddType application/javascript .js
