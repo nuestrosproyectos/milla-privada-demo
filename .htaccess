@@ -16,6 +16,9 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://millaprivada.com%{REQUEST_URI} [L,R=301]
 
+# Las rutas de Mallorca ahora están en /rutas/palma/
+RewriteRule ^rutas/mallorca/?(.*)$ /rutas/palma/$1 [L,R=301]
+
 # La portada lleva directa a Barcelona
 RewriteRule ^$ /madrid/ [L,R=302]
 
