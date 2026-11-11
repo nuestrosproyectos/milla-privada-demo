@@ -9,7 +9,11 @@ if ($c('web') !== '') { echo '{"ok":true}'; exit; }            // trampa para ro
 $nombre = $c('nombre', 80); $tel = $c('telefono', 30); $email = $c('email', 120);
 $ciudad = $c('ciudad', 30); $origen = $c('origen', 200);
 $msg = trim(mb_substr((string)($_POST['mensaje'] ?? ''), 0, 3000));
-if ($nombre === '' || ($tel === '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) || empty($_POST['privacidad'])) {
+$tel = str_replace(' ', '', $tel);
+$telMal = $tel !== '' && !preg_match('/^\+?[0-9]{9,15}$/', $tel);
+$emailMal = $email !== '' && (!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/\.[A-Za-z]{2,}$/', $email));
+if ($telMal || $emailMal) { http_response_code(422); echo '{"ok":false,"error":"datos_no_validos"}'; exit; }
+if ($nombre === '' || ($tel === '' && $email === '') || empty($_POST['privacidad'])) {
   http_response_code(422); echo '{"ok":false,"error":"faltan_datos"}'; exit;
 }
 $asunto = '=?UTF-8?B?' . base64_encode("Nueva solicitud web · $ciudad · $nombre") . '?=';
