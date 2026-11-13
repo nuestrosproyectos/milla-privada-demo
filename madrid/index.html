@@ -146,7 +146,7 @@ body.sin-hud .hud{opacity:0}
 /* ---------- Actos ---------- */
 .acto{padding:clamp(88px,12vw,170px) 0}
 .claqueta{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px}
-.claqueta i{display:block;width:34px;height:22px;position:relative;border:1px solid var(--gris-2);border-radius:2px}
+.claqueta i{display:none;width:34px;height:22px;position:relative;border:1px solid var(--gris-2);border-radius:2px}
 .claqueta i::before{content:"";position:absolute;left:-1px;right:-1px;top:-7px;height:6px;background:repeating-linear-gradient(-45deg,var(--crema) 0 5px,var(--sala) 5px 10px);transform-origin:left bottom;transform:rotate(-18deg);transition:transform .25s var(--ease-ui)}
 .claqueta.cerrada i::before{transform:rotate(0)}
 .acto-cab{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(40px,6vw,72px)}
@@ -2843,7 +2843,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=6cd6921e" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Madrid. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Madrid están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/madrid/">Rutas en superdeportivo</a> · <a href="mailto:reservas@millaprivada.com">reservas@millaprivada.com</a> · <a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-privacidad/">Privacidad</a> · <a href="../politica-cookies/">Cookies</a> · <span class="version">versión 13/11 07:36</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/madrid/">Rutas en superdeportivo</a> · <a href="mailto:reservas@millaprivada.com">reservas@millaprivada.com</a> · <a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-privacidad/">Privacidad</a> · <a href="../politica-cookies/">Cookies</a> · <span class="version">versión 13/11 07:41</span></p>
       <p class="aviso-oficial">Solo atendemos reservas desde el WhatsApp <a href="https://wa.me/34629493217">+34 629 493 217</a> y el email reservas@millaprivada.com. Nunca te pediremos pagar en otra cuenta ni los datos de tu tarjeta por WhatsApp.</p>
     </div>
   </div>
