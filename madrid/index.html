@@ -394,22 +394,6 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 }
 
 /* ---------- Localizaciones ---------- */
-.elige{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,22px)}
-.eleccion{position:relative;display:flex;align-items:flex-end;min-height:clamp(170px,30vh,300px);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--crema);background:#000;isolation:isolate;border:1px solid var(--linea)}
-.eleccion img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.eleccion:hover img{transform:scale(1.04)}
-.eleccion::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(12,10,9,.95) 0%,rgba(12,10,9,.55) 55%,rgba(12,10,9,.15) 100%)}
-.eleccion .el-txt{position:relative;z-index:2;padding:clamp(18px,2.4vw,30px);width:100%}
-.eleccion h2{font-size:clamp(30px,3.4vw,52px);margin:6px 0 6px;line-height:1}
-.eleccion p{margin:0;color:#e6dfd2;font-size:15px}
-.eleccion .el-ir{display:inline-block;margin-top:12px;font:600 13px/1 var(--f-rotulo);letter-spacing:.16em;text-transform:uppercase;color:var(--ambar)}
-.eleccion.pronto img{filter:grayscale(1) brightness(.7)}
-.eleccion.pronto .el-ir{color:var(--gris)}
-.cab-rutas{display:none;font:600 12px/1 var(--f-rotulo);text-transform:uppercase;letter-spacing:.16em;text-decoration:none;color:var(--crema)}
-@media (max-width:980px){.cab-rutas{display:inline-block;margin-left:auto}.cab .cab-rutas~.btn{margin-left:0}}
-@media (max-width:520px){.cab-in{gap:12px}.cab-rutas{font-size:11px;letter-spacing:.1em}.cab .btn{padding:0 14px;font-size:13px;min-height:38px}}
-@media (max-width:420px){.cab .logo img{height:11px}}
-@media (max-width:700px){.elige{grid-template-columns:1fr}.eleccion{min-height:150px}}
 .locs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,20px)}
 .loc{position:relative;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:#000;isolation:isolate}
 .loc img,.loc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -569,7 +553,6 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
       <a href="#preguntas">Preguntas</a>
       <a href="../rutas/madrid/">Rutas</a>
     </nav>
-    <a class="cab-rutas" href="../rutas/madrid/">Rutas</a>
     <a class="cab-tel tel-ciudad" data-ciudad="madrid" href="tel:+34911413458">91 141 34 58</a>
     <a class="btn btn-rojo" href="#reserva">Reservar</a>
   </div>
@@ -616,16 +599,6 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   </div>
 </section>
 
-
-<section class="acto" id="elige" aria-labelledby="t-elige" style="padding-bottom:0;padding-top:clamp(48px,7vw,96px)">
-  <div class="wrap">
-    <p class="claqueta rotulo" id="t-elige" data-revelar><i></i>¿Qué te apetece?</p>
-    <div class="elige" data-revelar style="margin-top:18px">
-      <a class="eleccion" href="#flota"><img src="../media/barcelona/hero-poster.jpg?v=18ed70d9" alt="" loading="lazy" width="1920" height="1080"><div class="el-txt"><p class="rotulo">Opción 1</p><h2>Alquilar un <em>coche</em></h2><p>Te lo llevas por días y vas a donde quieras. Precio por día con IVA.</p><span class="el-ir">Ver los coches ↓</span></div></a>
-      <a class="eleccion" href="../rutas/madrid/"><img src="../media/rutas/segovia-poster.jpg?v=e66c8a66" alt="" loading="lazy" width="1280" height="720"><div class="el-txt"><p class="rotulo">Opción 2</p><h2>Hacer una <em>ruta</em></h2><p>Recorrido marcado con instructor, gasolina incluida y sin fianza. 6 rutas desde 130 €.</p><span class="el-ir">Ver las rutas →</span></div></a>
-    </div>
-  </div>
-</section>
 
 <section class="acto" id="flota" data-escena="ESC 02 · EL REPARTO" aria-labelledby="t-flota">
   <div class="wrap">
@@ -2840,7 +2813,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=6cd6921e" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Madrid. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Madrid están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/madrid/">Rutas en superdeportivo</a> · <a href="mailto:reservas@millaprivada.com">reservas@millaprivada.com</a> · <a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-privacidad/">Privacidad</a> · <a href="../politica-cookies/">Cookies</a> · <span class="version">versión 13/11 11:58</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/madrid/">Rutas en superdeportivo</a> · <a href="mailto:reservas@millaprivada.com">reservas@millaprivada.com</a> · <a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-privacidad/">Privacidad</a> · <a href="../politica-cookies/">Cookies</a> · <span class="version">versión 13/11 12:13</span></p>
       <p class="aviso-oficial">Solo atendemos reservas desde el WhatsApp <a href="https://wa.me/34629493217">+34 629 493 217</a> y el email reservas@millaprivada.com. Nunca te pediremos pagar en otra cuenta ni los datos de tu tarjeta por WhatsApp.</p>
     </div>
   </div>
