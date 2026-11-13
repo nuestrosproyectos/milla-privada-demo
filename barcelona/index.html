@@ -10,6 +10,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google-site-verification" content="PMMELdN0TwTFZJW-84OfLkAcm8G7XYmwxiLzIWvdxqo" />
 <title>Alquiler de superdeportivos en Barcelona | Milla Privada</title>
 <meta name="description" content="Alquila un Lamborghini, Ferrari, Porsche o McLaren en Barcelona. 56 coches con precio por día con IVA y 150 km diarios incluidos. Reserva por WhatsApp.">
 <link rel="canonical" href="https://millaprivada.com/barcelona/">
@@ -393,6 +394,22 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 }
 
 /* ---------- Localizaciones ---------- */
+.elige{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,22px)}
+.eleccion{position:relative;display:flex;align-items:flex-end;min-height:clamp(170px,30vh,300px);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--crema);background:#000;isolation:isolate;border:1px solid var(--linea)}
+.eleccion img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.eleccion:hover img{transform:scale(1.04)}
+.eleccion::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(12,10,9,.95) 0%,rgba(12,10,9,.55) 55%,rgba(12,10,9,.15) 100%)}
+.eleccion .el-txt{position:relative;z-index:2;padding:clamp(18px,2.4vw,30px);width:100%}
+.eleccion h2{font-size:clamp(30px,3.4vw,52px);margin:6px 0 6px;line-height:1}
+.eleccion p{margin:0;color:#e6dfd2;font-size:15px}
+.eleccion .el-ir{display:inline-block;margin-top:12px;font:600 13px/1 var(--f-rotulo);letter-spacing:.16em;text-transform:uppercase;color:var(--ambar)}
+.eleccion.pronto img{filter:grayscale(1) brightness(.7)}
+.eleccion.pronto .el-ir{color:var(--gris)}
+.cab-rutas{display:none;font:600 12px/1 var(--f-rotulo);text-transform:uppercase;letter-spacing:.16em;text-decoration:none;color:var(--crema)}
+@media (max-width:980px){.cab-rutas{display:inline-block;margin-left:auto}.cab .cab-rutas~.btn{margin-left:0}}
+@media (max-width:520px){.cab-in{gap:12px}.cab-rutas{font-size:11px;letter-spacing:.1em}.cab .btn{padding:0 14px;font-size:13px;min-height:38px}}
+@media (max-width:420px){.cab .logo img{height:11px}}
+@media (max-width:700px){.elige{grid-template-columns:1fr}.eleccion{min-height:150px}}
 .locs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,20px)}
 .loc{position:relative;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:#000;isolation:isolate}
 .loc img,.loc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -547,11 +564,11 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <a class="logo" href="#inicio" aria-label="Milla Privada, inicio"><img src="../media/marca/milla-privada-horizontal-oscuro.svg?v=23d1bf8c" alt="Milla Privada" width="300" height="18"></a>
     <nav class="nav" aria-label="Principal">
       <a href="#flota">La flota</a>
-      <a href="#barcelona">Barcelona</a>
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#preguntas">Preguntas</a>
-      <a href="../rutas/">Rutas</a>
+      <a href="#elige">Rutas</a>
     </nav>
+    <a class="cab-rutas" href="#elige">Rutas</a>
     <a class="cab-tel tel-ciudad" data-ciudad="barcelona" href="tel:+34933967471">933 967 471</a>
     <a class="btn btn-rojo" href="#reserva">Reservar</a>
   </div>
@@ -598,6 +615,16 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   </div>
 </section>
 
+
+<section class="acto" id="elige" aria-labelledby="t-elige" style="padding-bottom:0;padding-top:clamp(48px,7vw,96px)">
+  <div class="wrap">
+    <p class="claqueta rotulo" id="t-elige" data-revelar><i></i>¿Qué te apetece?</p>
+    <div class="elige" data-revelar style="margin-top:18px">
+      <a class="eleccion" href="#flota"><img src="../media/barcelona/hero-poster.jpg?v=18ed70d9" alt="" loading="lazy" width="1920" height="1080"><div class="el-txt"><p class="rotulo">Opción 1</p><h2>Alquilar un <em>coche</em></h2><p>Te lo llevas por días y vas a donde quieras. Precio por día con IVA.</p><span class="el-ir">Ver los coches ↓</span></div></a>
+      <div class="eleccion pronto" aria-label="Rutas en Barcelona: próximamente"><img src="../media/barcelona/montjuic.jpg?v=cd9a48d6" alt="" loading="lazy" width="1600" height="893"><div class="el-txt"><p class="rotulo">Opción 2</p><h2>Hacer una <em>ruta</em></h2><p>Rutas guiadas con instructor por Barcelona. Ya disponibles en <a href="../rutas/madrid/">Madrid</a> y <a href="../rutas/palma/">Mallorca</a>.</p><span class="el-ir">Próximamente en Barcelona</span></div></div>
+    </div>
+  </div>
+</section>
 
 <section class="acto" id="flota" data-escena="ESC 02 · EL REPARTO" aria-labelledby="t-flota">
   <div class="wrap">
@@ -2641,36 +2668,6 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   </div>
 </section>
 
-<section class="acto" id="barcelona" data-escena="ESC 03 · LOCALIZACIONES" aria-labelledby="t-bcn" style="padding-top:0">
-  <div class="wrap">
-    <div class="acto-cab">
-      <div>
-        <p class="claqueta rotulo" data-revelar><i></i>Acto II · Localizaciones</p>
-        <h2 id="t-bcn" data-revelar>Barcelona como <em>plató</em>.</h2>
-      </div>
-      <p data-revelar style="--retraso:.1s">Tres escenarios a menos de una hora del centro. Te los marcamos en el mapa cuando recoges el coche.</p>
-    </div>
-    <div class="locs">
-      <article class="loc" data-revelar>
-        <picture><source srcset="../media/barcelona/garraf.webp?v=1b4ab886" type="image/webp"><img src="../media/barcelona/garraf.jpg?v=6053b74f" alt="Temerario morado en la carretera de las Costes del Garraf" loading="lazy" width="1600" height="893"></picture>
-        <video data-src="../media/flota/alquiler-ferrari-roma-spider/garaje.mp4?v=0423f8a1" muted playsinline loop preload="none" aria-hidden="true"></video>
-        <div class="loc-txt"><p class="rotulo">C-31 · Costes del Garraf</p><h3>Curvas sobre el mar</h3><p>La carretera de la costa entre Castelldefels y Sitges: acantilados, túneles en la roca y el Mediterráneo a tu derecha.</p></div>
-      </article>
-      <article class="loc" data-revelar style="--retraso:.08s">
-        <picture><source srcset="../media/barcelona/montjuic.webp?v=9f37a526" type="image/webp"><img src="../media/barcelona/montjuic.jpg?v=cd9a48d6" alt="Temerario morado en Montjuïc con Barcelona y el puerto al fondo" loading="lazy" width="1600" height="893"></picture>
-        <video data-src="../media/barcelona/montjuic.mp4?v=2bc49687" muted playsinline loop preload="none" aria-hidden="true"></video>
-        <div class="loc-txt"><p class="rotulo">Montjuïc · Mirador de Miramar</p><h3>La ciudad a tus pies</h3><p>Sube al atardecer: el puerto, la Torre Mapfre y todo el skyline mientras se encienden las luces.</p></div>
-      </article>
-      <article class="loc" data-revelar style="--retraso:.16s">
-        <picture><source srcset="../media/barcelona/portvell.webp?v=07c0745f" type="image/webp"><img src="../media/barcelona/portvell.jpg?v=cce52c5d" alt="Temerario morado en el muelle del Port Vell de noche con el monumento a Colón" loading="lazy" width="1600" height="893"></picture>
-        <video data-src="../media/barcelona/portvell.mp4?v=a6481481" muted playsinline loop preload="none" aria-hidden="true"></video>
-        <div class="loc-txt"><p class="rotulo">Port Vell · Colón</p><h3>La foto de la noche</h3><p>Yates, el monumento a Colón y el suelo mojado reflejando las luces del puerto.</p></div>
-      </article>
-    </div>
-    <p class="nota-ia">Escenas recreadas con IA a partir de fotos reales de nuestro Lamborghini Temerario.</p>
-  </div>
-</section>
-
 <section class="acto" id="como-funciona" data-escena="ESC 04 · EL GUION" aria-labelledby="t-guion" style="padding-top:0">
   <div class="wrap">
     <div class="acto-cab">
@@ -2767,10 +2764,10 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
       <video muted playsinline loop preload="none" aria-hidden="true" data-rb="../media/rutas/ruta-tramontana-oeste"></video>
       <div class="rb-txt">
         <p class="claqueta rotulo"><i></i>Nuevo · Rutas en superdeportivo</p>
-        <h2>Rutas guiadas en <em>Madrid y Mallorca</em>.</h2>
-        <p class="rb-p">De la Sierra de Madrid a la Serra de Tramuntana, al volante y con un instructor a tu lado. Gasolina incluida y sin fianza.</p>
+        <h2>Rutas en Barcelona: <em>próximamente</em>.</h2>
+        <p class="rb-p">Mientras tanto, ya puedes hacerlas en Madrid y Mallorca: de la Sierra de Madrid a la Serra de Tramuntana, al volante y con un instructor a tu lado.</p>
         <p class="rb-p"><span class="rb-chip">10 rutas · desde 105 €</span></p>
-        <span class="btn btn-rojo">Ver las rutas →</span>
+        <span class="btn btn-rojo">Ver rutas en Madrid y Mallorca →</span>
       </div>
     </a>
   </div>
@@ -2841,7 +2838,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=6cd6921e" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Barcelona. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Barcelona están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../madrid/">Madrid</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/">Rutas en superdeportivo</a> · <a href="mailto:reservas@millaprivada.com">reservas@millaprivada.com</a> · <a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-privacidad/">Privacidad</a> · <a href="../politica-cookies/">Cookies</a> · <span class="version">versión 13/11 08:14</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../madrid/">Madrid</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/">Rutas en superdeportivo</a> · <a href="mailto:reservas@millaprivada.com">reservas@millaprivada.com</a> · <a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-privacidad/">Privacidad</a> · <a href="../politica-cookies/">Cookies</a> · <span class="version">versión 13/11 11:58</span></p>
       <p class="aviso-oficial">Solo atendemos reservas desde el WhatsApp <a href="https://wa.me/34629493217">+34 629 493 217</a> y el email reservas@millaprivada.com. Nunca te pediremos pagar en otra cuenta ni los datos de tu tarjeta por WhatsApp.</p>
     </div>
   </div>
