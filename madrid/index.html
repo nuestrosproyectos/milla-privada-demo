@@ -2843,7 +2843,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     <div>
       <img src="../media/marca/milla-privada-principal-oscuro.svg?v=6cd6921e" alt="Milla Privada" width="141" height="60" loading="lazy">
       <p>Milla Privada alquila superdeportivos y coches de lujo en Madrid. No somos concesionario oficial de ninguna marca: los nombres y logotipos pertenecen a sus titulares. Precios por día con IVA incluido; el traslado del vehículo se presupuesta aparte. Las escenas de Madrid están recreadas con IA a partir de fotos reales de nuestra flota.</p>
-      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/madrid/">Rutas en superdeportivo</a> · <a href="mailto:reservas@millaprivada.com">reservas@millaprivada.com</a> · <a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-privacidad/">Privacidad</a> · <a href="../politica-cookies/">Cookies</a> · <span class="version">versión 13/11 07:41</span></p>
+      <p>© <span id="anio">2026</span> Milla Privada · También en <a href="../barcelona/">Barcelona</a> y <a href="../palma/">Mallorca</a> · <a href="../rutas/madrid/">Rutas en superdeportivo</a> · <a href="mailto:reservas@millaprivada.com">reservas@millaprivada.com</a> · <a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-privacidad/">Privacidad</a> · <a href="../politica-cookies/">Cookies</a> · <span class="version">versión 13/11 07:44</span></p>
       <p class="aviso-oficial">Solo atendemos reservas desde el WhatsApp <a href="https://wa.me/34629493217">+34 629 493 217</a> y el email reservas@millaprivada.com. Nunca te pediremos pagar en otra cuenta ni los datos de tu tarjeta por WhatsApp.</p>
     </div>
   </div>
@@ -2928,15 +2928,24 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   (function(){
     var dlg = $('#trailer'), v = $('#trailer-video'), btn = $('#ver-trailer'), movil = matchMedia('(max-width: 820px)');
     if (!dlg || !btn) return;
+    var iphone = /iPhone|iPod/.test(navigator.userAgent);
+    function fuentes(){
+      if (v.firstChild) return;
+      v.innerHTML = '<source src="../media/madrid/trailer.mp4?v=7d6ea2a3" type="video/mp4"><source src="../media/madrid/trailer.webm?v=8eacb8a2" type="video/webm"><track kind="captions" srclang="es" label="Coches" src="../media/trailer-coches.vtt">';
+      v.preload = 'metadata'; v.load();
+    }
+    /* Las fuentes se preparan antes de pulsar: así el primer toque ya arranca el vídeo */
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es, o){ if (es[0].isIntersecting){ fuentes(); o.disconnect(); } }, {rootMargin:'400px'}).observe(btn);
     function abrir(){
-      if (!v.firstChild) v.innerHTML = '<source src=\"../media/madrid/trailer.mp4?v=7d6ea2a3\" type=\"video/mp4\"><source src=\"../media/madrid/trailer.webm?v=8eacb8a2\" type=\"video/webm\"><track kind="captions" srclang="es" label="Coches" src="../media/trailer-coches.vtt">';
+      fuentes();
       prepRotulos();
       if (dlg.open) dlg.close();
       if (v.ended || v.error) v.load();  // en móviles un vídeo terminado no siempre vuelve a arrancar sin recargar
       dlg.showModal(); v.muted = false;
-      try { v.currentTime = 0; } catch (e) {}
+      if (v.readyState > 0) try { v.currentTime = 0; } catch (e) {}
+      if (iphone) v.removeAttribute('playsinline');  // iPhone: su propio reproductor a pantalla completa, arranca al primer toque
       var pr = v.play(); if (pr && pr.catch) pr.catch(function(){});
-      if (movil.matches) pantallaCompleta();
+      if (movil.matches && !iphone) pantallaCompleta();
     }
     /* En el móvil: directo a pantalla completa y en horizontal */
     function pantallaCompleta(){
