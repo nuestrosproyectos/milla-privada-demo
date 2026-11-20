@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+.ruta>*{min-width:0}
 .contador button:disabled,.si-no button:disabled{opacity:.3;cursor:not-allowed}
 :root{--sala:#0c0a09;--pantalla:#151210;--pantalla-2:#1d1915;--linea:rgba(242,235,221,.12);--crema:#f2ebdd;--gris:#a39a8c;--ambar:#d81f30;--rojo:#d3202e;
 --ease:cubic-bezier(.16,1,.3,1);--f-titulo:"Instrument Serif",Georgia,serif;--f-cuerpo:"Archivo",system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,monospace;--gutter:clamp(16px,4vw,56px)}
@@ -44,6 +45,11 @@ h1 em,h2 em,h3 em{font-style:italic;text-shadow:0 0 28px rgba(216,31,48,.35)}
 .cab .btn{min-height:42px;padding:0 20px}.cab nav a.btn{color:#fff;letter-spacing:.02em;text-transform:none;font-size:14px}.cab nav a{text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .coche .sin{display:grid;place-items:center;width:100%;aspect-ratio:1.4/1;border-radius:6px;background:radial-gradient(circle at 50% 60%,#2a2219,#111);font:italic 400 30px var(--f-titulo);color:rgba(242,235,221,.5)}
 @media (max-width:820px){.cab nav a.opc{display:none}}
+.cab nav a.cab-tel{display:inline-flex;align-items:center;gap:8px;font:500 14px/1 "JetBrains Mono",monospace;letter-spacing:0;text-transform:none;color:var(--crema);min-height:40px;padding:0 14px;border:1px solid rgba(242,235,221,.18);border-radius:999px;white-space:nowrap}
+.cab-tel svg{width:15px;height:15px;flex:none}
+@media (max-width:520px){.cab nav{gap:10px}.cab nav a.cab-tel{font-size:13px;padding:0 12px;min-height:38px}}
+@media (max-width:380px){.logo img{height:11px}.cab-in{gap:10px}.cab nav a.btn{padding:0 12px}}
+@media (max-width:440px){.cab nav a.cab-tel{width:38px;padding:0;justify-content:center}.cab-tel-num{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
 @media (max-width:520px){.logo img{height:13px}.cab nav a.btn{min-height:38px;padding:0 14px;font-size:13px}}
 .cab nav a.btn{white-space:nowrap}
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#000}
@@ -227,6 +233,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
     <a class="opc" href="../rutas/madrid/">Rutas Madrid</a>
     <a class="opc" href="../rutas/palma/">Rutas Mallorca</a>
     <a class="opc" href="../madrid/">Alquiler</a>
+    <a class="cab-tel tel-ciudad" data-ciudad="madrid" href="tel:+34911413458" aria-label="Llamar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span class="cab-tel-num">91 141 34 58</span></a>
     <a class="btn btn-ambar" href="#reserva">Reservar ruta</a>
   </nav>
 </div></header>
