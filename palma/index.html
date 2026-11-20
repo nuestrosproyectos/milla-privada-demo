@@ -102,7 +102,7 @@ body.sin-hud .hud{opacity:0}
 @media (max-width:700px){.hud{display:none}}
 
 /* ---------- Cabecera ---------- */
-.cab{position:fixed;inset:0 0 auto;z-index:70;transition:background-color .4s var(--ease-ui),border-color .4s var(--ease-ui);border-bottom:1px solid transparent}
+.cab{position:fixed;inset:0 0 auto;z-index:95;transition:background-color .4s var(--ease-ui),border-color .4s var(--ease-ui);border-bottom:1px solid transparent}
 .cab.solida{background:rgba(12,10,9,.86);backdrop-filter:blur(14px);border-color:var(--linea)}
 .cab-in{display:flex;align-items:center;gap:28px;height:72px}
 .logo{display:block;flex:none}
@@ -495,7 +495,7 @@ dialog.ficha[open]{animation:abrir .45s var(--ease)}
 @media (max-width:820px){.pie-in{grid-template-columns:1fr}}
 
 /* ---------- Barra móvil ---------- */
-.barra{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;display:none;grid-template-columns:1fr 1fr;gap:8px;padding:8px;border-radius:999px;background:rgba(21,18,16,.9);backdrop-filter:blur(12px);border:1px solid var(--linea);transform:translateY(140%);transition:transform .45s var(--ease)}
+.barra{position:fixed;left:12px;right:12px;bottom:12px;z-index:95;display:none;grid-template-columns:1fr 1fr;gap:8px;padding:8px;border-radius:999px;background:rgba(21,18,16,.9);backdrop-filter:blur(12px);border:1px solid var(--linea);transform:translateY(140%);transition:transform .45s var(--ease)}
 .barra.visible{transform:none}
 .barra .btn{min-height:48px;padding:0 8px;font-size:15px;gap:6px}.barra .btn svg{width:17px;height:17px;flex:none}
 @media (max-width:820px){.barra{display:grid}}
