@@ -540,6 +540,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
 .cf-trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media (max-width:820px){.contacto-in,.cf-fila{grid-template-columns:1fr}.contacto-form .btn{justify-self:stretch}}
 .aviso-oficial{flex-basis:100%;font-size:13px;color:var(--gris);margin-top:10px}.aviso-oficial a{color:var(--crema)}
+.corte{position:fixed;inset:0;z-index:9000;background:#050403;opacity:0;pointer-events:none;transition:opacity .23s ease}.corte.on{opacity:1}
 </style>
 </head>
 <body>
@@ -3448,6 +3449,27 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   calcular();
   $('#t-wa').addEventListener('click', function(){ var t = $('#ticket'); t.classList.remove('troquel'); void t.offsetWidth; t.classList.add('troquel'); });
 
+
+  /* ---------- Enlaces internos: corte a negro y salto directo (sin recorrer toda la página) ---------- */
+  (function(){
+    var velo = document.createElement('div'); velo.className = 'corte'; velo.setAttribute('aria-hidden','true'); document.body.appendChild(velo);
+    var quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href'); if (id.length < 2) return;
+      var t = document.querySelector(id); if (!t) return;
+      e.preventDefault();
+      function ir(){
+        var y = t.getBoundingClientRect().top + window.scrollY - 72;
+        if (window.__lenis) window.__lenis.scrollTo(y, {immediate:true, force:true}); else window.scrollTo(0, y);
+        try { history.replaceState(null, '', id); } catch (er) {}
+      }
+      if (quieto) { ir(); return; }
+      velo.classList.add('on');
+      setTimeout(function(){ ir(); setTimeout(function(){ velo.classList.remove('on'); }, 60); }, 230);
+    });
+  })();
   $('#anio').textContent = new Date().getFullYear();
 
   /* ---------- GSAP + Lenis: hero, bandas y créditos (solo si hay movimiento) ---------- */
@@ -3462,7 +3484,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   });
   function iniciarMovimiento(){
     var gsap = window.gsap, ST = window.ScrollTrigger; gsap.registerPlugin(ST);
-    var lenis = new window.Lenis({lerp:.09, smoothWheel:true, wheelMultiplier:.9, anchors:{offset:-72}});
+    var lenis = new window.Lenis({lerp:.09, smoothWheel:true, wheelMultiplier:.9}); window.__lenis = lenis;
     lenis.on('scroll', ST.update);
     gsap.ticker.add(function(t){ lenis.raf(t * 1000); }); gsap.ticker.lagSmoothing(0);
     ficha.addEventListener('close', function(){ lenis.start(); });
