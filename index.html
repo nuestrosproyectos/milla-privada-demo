@@ -301,4 +301,29 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
     if(location.hash==='#trailer'){dl.showModal();var q2=tv.play();if(q2&&q2.catch)q2.catch(function(){})}tv.addEventListener('ended',cierra)}
   document.addEventListener('contextmenu',function(e){if(e.target.closest&&e.target.closest('video'))e.preventDefault()});
 })();
+
+(function(){
+  var K='mp_ads',DIAS=30,ads=false,q=location.search;
+  try{
+    if(/[?&](gclid|gbraid|wbraid|gad_source)=/.test(q)||/[?&]utm_medium=(cpc|ppc|paid)/i.test(q)){localStorage.setItem(K,String(Date.now()))}
+    var t=+localStorage.getItem(K);ads=!!t&&Date.now()-t<DIAS*864e5;
+  }catch(e){ads=/[?&](gclid|gbraid|wbraid|gad_source)=/.test(q)}
+  function porDefecto(){
+    var b=document.body&&document.body.getAttribute('data-wa');if(b)return b;
+    var p=location.pathname,c=/\/madrid\//.test(p)?'Madrid':/\/barcelona\//.test(p)?'Barcelona':/\/(palma|mallorca)\//.test(p)?'Mallorca':'';
+    if(/\/rutas\//.test(p))return 'Hola Milla Privada, quiero información sobre las rutas'+(c?' en '+c:'')+'.';
+    return 'Hola Milla Privada, quiero alquilar un coche'+(c?' en '+c:'')+'.';
+  }
+  function arregla(u){
+    if(typeof u!=='string'||u.indexOf('wa.me/')<0)return u;
+    var i=u.indexOf('?'),base=i<0?u:u.slice(0,i),qs=i<0?'':u.slice(i+1),txt=null,resto=[];
+    qs.split('&').forEach(function(kv){if(!kv)return;if(kv.indexOf('text=')===0){try{txt=decodeURIComponent(kv.slice(5).replace(/\+/g,' '))}catch(e){txt=kv.slice(5)}}else resto.push(kv)});
+    if(!txt)txt=porDefecto();
+    if(ads)txt=txt.replace(/^Hola\b/,'Buenas');
+    resto.push('text='+encodeURIComponent(txt));
+    return base+'?'+resto.join('&');
+  }
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(a)a.href=arregla(a.href)},true);
+  var abrir=window.open;window.open=function(u){var a=[].slice.call(arguments);a[0]=arregla(u);return abrir.apply(window,a)};
+})();
 </script></body></html>
