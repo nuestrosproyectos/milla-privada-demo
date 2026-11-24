@@ -2819,7 +2819,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
       <div class="cf-trampa" aria-hidden="true"><label>Web <input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
       <div class="cf-fila">
         <label class="cf-campo"><span>Nombre</span><input name="nombre" required autocomplete="name"></label>
-        <label class="cf-campo"><span>Teléfono</span><input name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="16" pattern="\+?[0-9]{9,15}" placeholder="600123456 o +34600123456" aria-describedby="cf-err-tel"><small class="cf-err" id="cf-err-tel"></small></label>
+        <label class="cf-campo"><span>Teléfono</span><input name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="16" pattern="\+?[0-9]{9,15}" placeholder="Tu móvil" aria-describedby="cf-err-tel"><small class="cf-err" id="cf-err-tel"></small></label>
       </div>
       <label class="cf-campo"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="120" placeholder="tu@email.com" aria-describedby="cf-err-email"><small class="cf-err" id="cf-err-email"></small></label>
       <label class="cf-campo"><span>¿Qué coche o ruta te interesa?</span><textarea name="mensaje" rows="3"></textarea></label>
@@ -3527,7 +3527,7 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
   var RE_MAIL=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
   function marca(inp,txt){var e=document.getElementById(inp.getAttribute('aria-describedby'));e.textContent=txt||'';
     if(txt)inp.setAttribute('aria-invalid','true');else inp.removeAttribute('aria-invalid');return !txt}
-  function okTel(){var v=tel.value.trim();return marca(tel,v&&!RE_TEL.test(v)?'Solo números (9 a 15) y, si quieres, el prefijo con +. Ej.: +34600123456':'')}
+  function okTel(){var v=tel.value.trim();return marca(tel,v&&!RE_TEL.test(v)?'Solo números (9 a 15) y, si quieres, el prefijo con +.':'')}
   function okMail(){var v=mail.value.trim();return marca(mail,v&&!RE_MAIL.test(v)?'Escribe un email válido, por ejemplo nombre@dominio.com':'')}
   /* el teléfono solo admite cifras y un + al principio */
   tel.addEventListener('input',function(){var v=tel.value,p=v.trim().charAt(0)==='+'?'+':'';var n=p+v.replace(/[^0-9]/g,'').slice(0,15);
