@@ -253,7 +253,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
 </div></header>
 <main class="legal"><div class="wrap">
   <nav class="legal-nav" aria-label="Información legal"><a href="../aviso-legal/" aria-current="page">Aviso legal</a><a href="../politica-privacidad/">Política de privacidad</a><a href="../politica-cookies/">Política de cookies</a></nav>
-  <p class="rotulo">Información legal</p><h1>Aviso legal</h1><p class="act">Última actualización: 24/11/2026</p>
+  <p class="rotulo">Información legal</p><h1>Aviso legal</h1><p class="act">Última actualización: 25/11/2026</p>
   
 <h2>1. Datos identificativos</h2>
 <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que el sitio web <strong>millaprivada.com</strong> es titularidad de:</p>
@@ -331,7 +331,11 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--gris) 50%),l
     resto.push('text='+encodeURIComponent(txt));
     return base+'?'+resto.join('&');
   }
-  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(a)a.href=arregla(a.href)},true);
+  function cuenta(){
+    try{(window.dataLayer=window.dataLayer||[]).push({event:'clic_whatsapp',wa_origen:ads?'anuncio':'web',wa_pagina:location.pathname})}catch(e){}
+    try{var f=new FormData();f.append('p',location.pathname);f.append('a',ads?'1':'0');navigator.sendBeacon&&navigator.sendBeacon('/contador-wa.php',f)}catch(e){}
+  }
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(a){a.href=arregla(a.href);cuenta()}},true);
   var abrir=window.open;window.open=function(u){var a=[].slice.call(arguments);a[0]=arregla(u);return abrir.apply(window,a)};
 })();
 </script></body></html>

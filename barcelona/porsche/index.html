@@ -1812,7 +1812,11 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     resto.push('text='+encodeURIComponent(txt));
     return base+'?'+resto.join('&');
   }
-  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(a)a.href=arregla(a.href)},true);
+  function cuenta(){
+    try{(window.dataLayer=window.dataLayer||[]).push({event:'clic_whatsapp',wa_origen:ads?'anuncio':'web',wa_pagina:location.pathname})}catch(e){}
+    try{var f=new FormData();f.append('p',location.pathname);f.append('a',ads?'1':'0');navigator.sendBeacon&&navigator.sendBeacon('/contador-wa.php',f)}catch(e){}
+  }
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(a){a.href=arregla(a.href);cuenta()}},true);
   var abrir=window.open;window.open=function(u){var a=[].slice.call(arguments);a[0]=arregla(u);return abrir.apply(window,a)};
 })();
 </script></body>
