@@ -1679,13 +1679,8 @@ html.js [data-revelar].visto{opacity:1;transform:none;transition:opacity .9s var
     try{var f=new FormData();f.append('p',location.pathname);f.append('a',ads?'1':'0');navigator.sendBeacon&&navigator.sendBeacon('/contador-wa.php',f)}catch(e){}
   }
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(a){a.href=arregla(a.href);cuenta()}},true);
-  // WhatsApp directo: los enlaces quedan fuera de la ventana de Idento (su clase de exclusión en <body>)
-  // y window.open no se deja sustituir, para que «Avísame» también abra el chat sin pasos intermedios.
-  function excluir(){document.body&&document.body.classList.add('no-whatsapp-modal')}
-  document.body?excluir():document.addEventListener('DOMContentLoaded',excluir);
   var abrir=window.open;
-  function abrirWa(u){var a=[].slice.call(arguments);if(typeof u==='string'&&u.indexOf('wa.me/')>-1){a[0]=arregla(u);cuenta()}return abrir.apply(window,a)}
-  try{Object.defineProperty(window,'open',{value:abrirWa,writable:false,configurable:false})}catch(e){window.open=abrirWa}
+  window.open=function(u){var a=[].slice.call(arguments);if(typeof u==='string'&&u.indexOf('wa.me/')>-1){a[0]=arregla(u);cuenta()}return abrir.apply(window,a)};
 })();
 </script></body>
 </html>
